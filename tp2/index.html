@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1d972d2727.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet"  href="css/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Home</title>
+</head>
+<body>
+	<div class="progress">
+	    <p>Cargando InstaGame</p>
+	    <progress id="cargaBarra" max="100" value="100"></progress>
+	    <span></span>
+	</div>
+    <header>
+        <div class="left-header">
+            <button class="burger"><i class="fa-solid fa-bars"></i></button>
+            <ul class="menuRender" id="menuRender-js"></ul>
+            <a href="index.html"><img src="images/logo-game.png" alt="logo"></img></a>
+            <p>InstaGame</p>
+        </div>
+        <div class="right-header"> 
+            <img src="images/user.jpg" alt="foto-usuario">
+        </div>
+    </header>
+    <nav class="menu">
+        <ul>
+            <li>Perfil</li>
+            <li>Recientes</li>
+            <li>Logros</li>
+            <li>Acción</li>
+            <li>Aventura</li>
+            <li>Carrera</li>
+            <li>Desportes</li>
+            <li>Futbol</li>
+            <li>Más jugados</li>
+        </ul>
+    </nav>
+    <seccion class="conteiner-personalizados">
+        <h1>Mejores juegos gratuitos</h1>
+        <div class="conteiner-juegos-personalizados">
+            <div class="card-personalizada">
+                <img src="" alt="">
+                <p>Jugar</p>
+            </div>
+            <div class="card-personalizada">
+                <img src="" alt="">
+                <p>Jugar</p>
+            </div>
+            <div class="card-personalizada">
+                <img src="" alt="">
+                <p>Jugar</p>
+            </div>
+            <div class="card-personalizada">
+                <img src="" alt="">
+                <p>Jugar</p>
+            </div>
+            <div class="card-personalizada">
+                <img src="" alt="">
+                <p>Jugar</p>
+            </div>
+            <div class="card-personalizada">
+                <img src="" alt="">
+                <p>Jugar</p>
+            </div>
+            <div class="card-personalizada">
+                <img src="" alt="">
+                <p>Jugar</p>
+            </div>
+            <div class="card-personalizada">
+                <img src="" alt="">
+                <p>Jugar</p>
+            </div>
+            <div class="card-personalizada">
+                <img src="" alt="">
+                <p>Jugar</p>
+            </div>
+            <div class="card-personalizada">
+                <img src="" alt="">
+                <p>Jugar</p>
+            </div>
+            <div class="card-personalizada">
+                <img src="" alt="">
+                <p>Jugar</p>
+            </div>
+            <div class="card-personalizada">
+                <img src="" alt="">
+                <p>Jugar</p>
+            </div>
+            <div class="card-personalizada">
+                <img src="" alt="">
+                <p>Jugar</p>
+            </div>
+            <div class="card-personalizada">
+                <img src="" alt="">
+                <p>Jugar</p>
+            </div>
+        </div> 
+    </seccion>
+    <Section class="carrusel-normal">
+        <h1>Sugerencias personalizadas</h1>
+        <div class="carrusel">
+            <div class="caja-carrusel">
+                <div class="tarjeta-juego">
+                    <img src="images/4EnLinea-1.jpg" alt="4enlinea">
+                    <p class="titulo-tarjeta-juego">4 En Linea</p>
+                    <p class="precio-juego-tarjeta"></p>
+                    <button  class="btn-jugar" id="btn-jugar-4enlinea"><a href="4enlinea.html">Jugar </a></button>    
+                </div>
+                <div class="tarjeta-compra">
+                    <img src="images/4EnLinea-1.jpg" alt="Circus">  
+                    <p class="titulo-tarjeta-compra">Circus</p>
+                    <p class="precio-tarjeta-compra">$2000</p>
+                    <button  class="btn-comprar" id="btn-comprar-Circus">Comprar</button>                     
+                </div> 
+                <div class="tarjeta-juego">
+                    <img src="images/4EnLinea-1.jpg" alt="BattleCity">
+                    <p class="titulo-tarjeta-juego">BattleCity</p>
+                    <p class="precio-juego-tarjeta"></p>
+                    <button  class="btn-jugar" id="btn-jugar-BattleCity">Jugar</button>
+                </div> 
+                <div class="tarjeta-compra">
+                    <img src="images/4EnLinea-1.jpg" alt="Tetris">
+                    <p id="cart-inImg-Tetris"></p>
+                    <p class="titulo-tarjeta-compra">Tetris</p>
+                    <p class="precio-tarjeta-compra">$150</p>
+                    <button  class="btn-comprar" id="btn-comprar-Tetris">Comprar</button>
+                </div>                   
+                <div class="tarjeta-juego">
+                    <img src="images/4EnLinea-1.jpg" alt="PacMan">
+                    <p class="titulo-tarjeta-juego">PacMan</p>
+                    <p class="precio-juego-tarjeta"></p>
+                    <button  class="btn-jugar" id="btn-jugar-PacMan">Jugar</button>  
+                </div>
+                <div class="tarjeta-compra">
+                    <img src="images/4EnLinea-1.jpg" alt="Galaga">
+                    <p id="cart-inImg-Galaga"></p>
+                    <p class="titulo-tarjeta-compra">Galaga</p>
+                    <p class="precio-tarjeta-compra">$150</p>
+                    <button  class="btn-comprar" id="btn-comprar-Galaga">Comprar</button>
+                </div>   
+                <div class="tarjeta-juego">
+                    <img src="images/4EnLinea-1.jpg" alt="CounterStrike">
+                    <p class="titulo-tarjeta-juego">Counter Strike</p>
+                    <p class="precio-juego-tarjeta"></p>
+                    <button  class="btn-jugar" id="btn-jugar-CounterStrike">Jugar</button>
+                </div>
+                <div class="tarjeta-juego">
+                    <img src="images/4EnLinea-1.jpg" alt="VirtualVoley">
+                    <p class="titulo-tarjeta-juego">Virtual Voley</p>
+                    <p class="precio-juego-tarjeta"></p>
+                    <button  class="btn-jugar" id="btn-jugar-VirtualVoley">Jugar</button>               
+                </div>      
+            </div> 
+            <ul class="puntos">
+                <li class="punto activo"></li>
+                <li class="punto"></li>
+                <li class="punto"></li>
+            </ul> 
+        </div>
+        <h2>Clásicos</h2>
+        <div class="carrusel">
+            <div class="caja-carrusel-dos">
+                <div class="parte-carrusel"> 
+                    <div class="tarjeta-juego">
+                        <img src="images/juegoDeMesa/ludo.webp" alt="Ludo">
+                        <p class="titulo-tarjeta">Ludo</p>
+                        <div class="conteiner-precioBtnComprar">
+                            <p class="precio-juego-tarjeta"></p>
+                            <button  class="btn-jugar" id="btn-jugar-Ludo">Jugar</button>
+                        </div>
+                    </div>
+                    <div class="tarjeta-juego">
+                        <img src="images/juegoDeMesa/monopoli.jpg" alt="Monopoli">
+                        <p class="titulo-tarjeta">Monopoli</p>
+                        <div class="conteiner-precioBtnComprar">
+                            <p class="precio-juego-tarjeta"></p>
+                            <button  class="btn-jugar" id="btn-jugar-Monopoli">Jugar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="parte-carrusel">
+                    <div class="tarjeta-juego">
+                        <div class="conteiner-imgCart">
+                            <img src="images/juegoDeMesa/truco.jpg" alt="Truco">
+                            <p id="cart-inImg-Truco"></p>
+                        </div>
+                        <p class="titulo-tarjeta">Truco</p>
+                        <div class="conteiner-precioBtnComprar">
+                            <p class="precio-juego-tarjeta">$150</p>
+                            <button  class="btn-comprar" id="btn-comprar-Truco"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>    
+                    </div>
+                    <div class="tarjeta-juego">
+                        <div class="conteiner-imgCart">
+                            <img src="images/juegoDeMesa/tute.gif" alt="TuteCabrero">
+                            <p id="cart-inImg-Tute"></p>
+                        </div>
+                        <p class="titulo-tarjeta">Tute Cabrero</p>
+                        <div class="conteiner-precioBtnComprar">
+                            <p class="precio-juego-tarjeta">$150</p>
+                            <button  class="btn-comprar" id="btn-comprar-TuteCabrero"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div> 
+                    </div>  
+                </div>    
+                <div class="parte-carrusel">
+                    <div class="tarjeta-juego">
+                        <div class="conteiner-imgCart">
+                            <img src="images/juegoDeMesa/uno.jpg" alt="Uno">
+                            <p id="cart-inImg-Uno"></p>
+                        </div>
+                        <p class="titulo-tarjeta">Uno</p>
+                        <div class="conteiner-precioBtnComprar">
+                            <p class="precio-juego-tarjeta">$150</p>
+                            <button  class="btn-comprar" id="btn-comprar-Uno"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>    
+                    </div>
+                    <div class="tarjeta-juego">
+                        <img src="images/juegoDeMesa/chinchon.jpg" alt="Chichon">
+                        <p class="titulo-tarjeta">Chichon</p>
+                        <div class="conteiner-precioBtnComprar">
+                            <p class="precio-juego-tarjeta"></p>
+                            <button  class="btn-jugar" id="btn-jugar-Chichon">jugar</button> 
+                        </div>
+                    </div>  
+                </div>
+                <div class="parte-carrusel">
+                    <div class="tarjeta-juego">
+                        <img src="images/juegoDeMesa/generala.png" alt="Generala">
+                        <p class="titulo-tarjeta">Generala</p>
+                        <div class="conteiner-precioBtnComprar">
+                            <p class="precio-juego-tarjeta"></p>
+                            <button  class="btn-jugar" id="btn-jugar-Generala">Jugar</button>
+                        </div>
+                    </div> 
+                    <div class="tarjeta-juego">
+                        <img src="images/deportes/fifa.jpeg" alt="FIFA">
+                        <p class="titulo-tarjeta">FIFA</p>
+                        <div class="conteiner-precioBtnComprar">
+                            <p class="precio-juego-tarjeta"></p>
+                            <button  class="btn-jugar" id="btn-jugar-FIFA">Jugar</button>
+                        </div>   
+                    </div>
+                </div>
+            </div>    
+            <ul class="puntos-dos">
+                <li class="punto-dos activo"></li>
+                <li class="punto-dos"></li>
+                <li class="punto-dos"></li>
+            </ul> 
+        </div>
+        <h2>Deportes</h2>
+        <div class="carrusel">
+            <div class="caja-carrusel-tres">
+                <div class="parte-carrusel">
+                    <div class="tarjeta-juego">
+                        <img src="images/deportes/daitona.jpg" alt="Daitona">
+                        <p class="titulo-tarjeta">Daitona</p>
+                        <div class="conteiner-precioBtnComprar">
+                            <p class="precio-juego-tarjeta"></p>
+                            <button  class="btn-jugar" id="btn-jugar-Daitona">Jugar</button>
+                        </div> 
+                    </div>
+                    <div class="tarjeta-juego">
+                        <img src="images/deportes/fifa.jpeg" alt="FIFA">
+                        <p class="titulo-tarjeta">FIFA</p>
+                        <div class="conteiner-precioBtnComprar">
+                            <p class="precio-juego-tarjeta"></p>
+                            <button  class="btn-jugar" id="btn-jugar-FIFA">Jugar</button>
+                        </div>   
+                    </div>  
+                </div>
+                <div class="parte-carrusel">
+                    <div class="tarjeta-juego">
+                        <div class="conteiner-imgCart">
+                            <img src="images/deportes/goal3.jpg" alt="Goal3">
+                            <p id="cart-inImg-Goal3"></p>
+                        </div>
+                        <p class="titulo-tarjeta">Goal 3</p>
+                        <div class="conteiner-precioBtnComprar">
+                            <p class="precio-juego-tarjeta">$150</p>
+                            <button  class="btn-comprar" id="btn-comprar-Goal3"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </div>
+                    <div class="tarjeta-juego">
+                        <div class="conteiner-imgCart">
+                            <img src="images/deportes/microMachine.jpg" alt="MicroMachine">
+                            <p id="cart-inImg-MicroMachine"></p>
+                        </div>
+                        <p class="titulo-tarjeta">MicroMachine</p>
+                        <div class="conteiner-precioBtnComprar">
+                            <p class="precio-juego-tarjeta">$150</p>
+                            <button  class="btn-comprar" id="btn-comprar-MicroMachine"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </div> 
+                </div>
+                <div class="parte-carrusel">
+                    <div class="tarjeta-juego">
+                        <div class="conteiner-imgCart">
+                            <img src="images/deportes/PingPong.webp" alt="PingPong">
+                            <p id="cart-inImg-PingPong"></p>
+                        </div>
+                        <p class="titulo-tarjeta">Ping Pong</p>
+                        <div class="conteiner-precioBtnComprar">
+                            <p class="precio-juego-tarjeta">$150</p>
+                            <button  class="btn-comprar" id="btn-comprar-PingPong"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>               
+                    </div>
+                    <div class="tarjeta-juego">
+                        <img src="images/deportes/tenis.webp" alt="VirtualTenis">
+                        <p class="titulo-tarjeta">Virtual Tenis</p>
+                        <div class="conteiner-precioBtnComprar">
+                            <p class="precio-juego-tarjeta"></p>
+                            <button  class="btn-jugar" id="btn-jugar-VirtualTenis">jugar</button>
+                        </div>                
+                    </div>  
+                </div>
+                <div class="parte-carrusel">
+                    <div class="tarjeta-juego">
+                        <img src="images/juegoDeMesa/chinchon.jpg" alt="Chichon">
+                        <p class="titulo-tarjeta">Chichon</p>
+                        <div class="conteiner-precioBtnComprar">
+                            <p class="precio-juego-tarjeta"></p>
+                            <button  class="btn-jugar" id="btn-jugar-Chichon">jugar</button> 
+                        </div>
+                    </div>
+                    <div class="tarjeta-juego">
+                        <img src="images/deportes/Voley.jpeg" alt="VirtualVoley">
+                        <p class="titulo-tarjeta">Virtual Voley</p>
+                        <div class="conteiner-precioBtnComprar">
+                            <p class="precio-juego-tarjeta"></p>
+                            <button  class="btn-jugar" id="btn-jugar-VirtualVoley">Jugar</button>
+                        </div>               
+                    </div> 
+                </div>
+            </div>
+            <ul class="puntos-tres">
+                <li class="punto-tres activo"></li>
+                <li class="punto-tres"></li>
+                <li class="punto-tres"></li>
+            </ul>
+        </div>
+    </Section>
+    <!-- INICIO CARRUSELES RESPONSIVE-->
+    <Section class="carrusel-responsive">
+        <h2>Recomendados</h2>
+        <div class="carrusel-resp">
+            <div class="caja-carrusel-resp">
+                <div class="parte-carrusel-resp">
+                    <div class="tarjeta-juego-resp">
+                        <img src="images/4EnLinea/4EnLinea-2.jpg" alt="4enlinea">
+                        <p class="titulo-tarjeta-resp">4 En Linea</p>
+                        <div class="conteiner-precioBtnComprar-resp">
+                            <p class="precio-juego-tarjeta-resp"></p>
+                            <button  class="btn-jugar-resp" id="btn-jugar-4enlinea-resp"><a href="4enlinea.html">Jugar </a></button>
+                        </div>     
+                    </div>
+                </div>    
+                <div class="parte-carrusel-resp">
+                    <div class="tarjeta-juego-resp">
+                        <div class="conteiner-imgCart-resp">
+                            <img src="images/family/circus.png" alt="Circus">
+                            <p id="cart-inImg-CircusResp"></p>  
+                        </div>
+                        <p class="titulo-tarjeta-resp">Circus</p>
+                        <div class="conteiner-precioBtnComprar-resp">
+                            <p class="precio-juego-tarjeta-resp">$150</p>
+                            <button  class="btn-comprar-resp" id="btn-comprar-Circus-resp"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </div> 
+                </div>
+                <div class="parte-carrusel-resp">
+                    <div class="tarjeta-juego-resp">
+                        <img src="images/family/battleCity.jpeg" alt="BattleCity">
+                        <p class="titulo-tarjeta-resp">BattleCity</p>
+                        <div class="conteiner-precioBtnComprar-resp">
+                            <p class="precio-juego-tarjeta-resp"></p>
+                            <button  class="btn-jugar-resp" id="btn-jugar-BattleCity-resp">Jugar</button>
+                        </div>
+                    </div> 
+                </div>     
+                <div class="parte-carrusel-resp">    
+                    <div class="tarjeta-juego-resp">
+                        <div class="conteiner-imgCart-resp">
+                            <img src="images/clasicos/tetris.jpg" alt="Tetris">
+                            <p id="cart-inImg-TetrisResp"></p>
+                        </div>
+                        <p class="titulo-tarjeta-resp">Tetris</p>
+                        <div class="conteiner-precioBtnComprar-resp">
+                            <p class="precio-juego-tarjeta-resp">$150</p>
+                            <button  class="btn-comprar-resp" id="btn-comprar-Tetris-resp"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="parte-carrusel-resp">                     
+                    <div class="tarjeta-juego-resp">
+                        <img src="images/clasicos/Pacman.gif" alt="PacMan">
+                        <p class="titulo-tarjeta-resp">PacMan</p>
+                        <div class="conteiner-precioBtnComprar-resp">
+                            <p class="precio-juego-tarjeta-resp"></p>
+                            <button  class="btn-jugar-resp" id="btn-jugar-PacMan-resp">Jugar</button>
+                        </div>   
+                    </div>
+                </div>  
+                <div class="parte-carrusel-resp">     
+                    <div class="tarjeta-juego-resp">
+                        <div class="conteiner-imgCart-resp">
+                            <img src="images/clasicos/galaga.jpg" alt="Galaga">
+                            <p id="cart-inImg-GalagaResp"></p>
+                        </div>
+                        <p class="titulo-tarjeta-resp">Galaga</p>
+                        <div class="conteiner-precioBtnComprar-resp">
+                            <p class="precio-juego-tarjeta-resp">$150</p>
+                            <button  class="btn-comprar-resp" id="btn-comprar-Galaga-resp"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>   
+                    </div>
+                </div> 
+                <div class="parte-carrusel-resp">     
+                    <div class="tarjeta-juego-resp">
+                        <img src="images/clasicos/counterStrike.jpg" alt="CounterStrike">
+                        <p class="titulo-tarjeta-resp">Counter Strike</p>
+                        <div class="conteiner-precioBtnComprar-resp">
+                            <p class="precio-juego-tarjeta-resp"></p>
+                            <button  class="btn-jugar-resp" id="btn-jugar-CounterStrike-resp">Jugar</button>
+                        </div>
+                    </div>
+                </div> 
+                <div class="parte-carrusel-resp">    
+                    <div class="tarjeta-juego-resp">
+                        <img src="images/deportes/Voley.jpeg" alt="VirtualVoley">
+                        <p class="titulo-tarjeta-resp">Virtual Voley</p>
+                        <div class="conteiner-precioBtnComprar-resp">
+                            <p class="precio-juego-tarjeta-resp"></p>
+                            <button  class="btn-jugar-resp" id="btn-jugar-VirtualVoley-resp">Jugar</button>
+                        </div>               
+                    </div>    
+                </div>   
+            </div> 
+            <ul class="puntos-resp">
+                <li class="punto-resp activo-resp"></li>
+                <li class="punto-resp"></li>
+                <li class="punto-resp"></li>
+                <li class="punto-resp"></li>
+                <li class="punto-resp"></li>
+                <li class="punto-resp"></li>
+            </ul> 
+        </div>
+        <h2>Clásicos</h2>
+        <div class="carrusel-resp">
+            <div class="caja-carrusel-dos-resp">
+                <div class="parte-carrusel-resp"> 
+                    <div class="tarjeta-juego-resp">
+                        <img src="images/juegoDeMesa/ludo.jpg" alt="Ludo">
+                        <p class="titulo-tarjeta-resp">Ludo</p>
+                        <div class="conteiner-precioBtnComprar-resp">
+                            <p class="precio-juego-tarjeta-resp"></p>
+                            <button  class="btn-jugar-resp" id="btn-jugar-Ludo-resp">Jugar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="parte-carrusel-resp">
+                    <div class="tarjeta-juego-resp">
+                        <img src="images/juegoDeMesa/monopoli.jpg" alt="Monopoli">
+                        <p class="titulo-tarjeta-resp">Monopoli</p>
+                        <div class="conteiner-precioBtnComprar-resp">
+                            <p class="precio-juego-tarjeta-resp"></p>
+                            <button  class="btn-jugar-resp" id="btn-jugar-Monopoli-resp">Jugar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="parte-carrusel-resp">
+                    <div class="tarjeta-juego-resp">
+                        <div class="conteiner-imgCart-resp">
+                            <img src="images/juegoDeMesa/truco.jpg" alt="Truco">
+                            <p id="cart-inImg-TrucoResp"></p>
+                        </div>
+                        <p class="titulo-tarjeta-resp">Truco</p>
+                        <div class="conteiner-precioBtnComprar-resp">
+                            <p class="precio-juego-tarjeta-resp">$150</p>
+                            <button  class="btn-comprar-resp" id="btn-comprar-Truco-resp"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>    
+                    </div>
+                </div>
+                <div class="parte-carrusel-resp">
+                    <div class="tarjeta-juego-resp">
+                        <div class="conteiner-imgCart-resp">
+                            <img src="images/juegoDeMesa/tute.gif" alt="TuteCabrero">
+                            <p id="cart-inImg-TuteResp"></p>
+                        </div>
+                        <p class="titulo-tarjeta-resp">Tute Cabrero</p>
+                        <div class="conteiner-precioBtnComprar-resp">
+                            <p class="precio-juego-tarjeta-resp">$150</p>
+                            <button  class="btn-comprar-resp" id="btn-comprar-Tute-resp"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div> 
+                    </div>  
+                </div>    
+                <div class="parte-carrusel-resp">
+                    <div class="tarjeta-juego-resp">
+                        <div class="conteiner-imgCart-resp">
+                            <img src="images/juegoDeMesa/uno.jpg" alt="Uno">
+                            <p id="cart-inImg-UnoResp"></p>
+                        </div>
+                        <p class="titulo-tarjeta-resp">Uno</p>
+                        <div class="conteiner-precioBtnComprar-resp">
+                            <p class="precio-juego-tarjeta-resp">$150</p>
+                            <button  class="btn-comprar-resp" id="btn-comprar-Uno-resp"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>    
+                    </div>
+                </div> 
+                <div class="parte-carrusel-resp">
+                    <div class="tarjeta-juego-resp">
+                        <img src="images/juegoDeMesa/chinchon.jpg" alt="Chichon">
+                        <p class="titulo-tarjeta-resp">Chichon</p>
+                        <div class="conteiner-precioBtnComprar-resp">
+                            <p class="precio-juego-tarjeta-res"></p>
+                            <button  class="btn-jugar-resp" id="btn-jugar-Chichon-resp">jugar</button> 
+                        </div>
+                    </div>  
+                </div>
+                <div class="parte-carrusel-resp">
+                    <div class="tarjeta-juego-resp">
+                        <img src="images/juegoDeMesa/generala.png" alt="Generala">
+                        <p class="titulo-tarjeta-resp">Generala</p>
+                        <div class="conteiner-precioBtnComprar-resp">
+                            <p class="precio-juego-tarjeta-resp"></p>
+                            <button  class="btn-jugar-resp" id="btn-jugar-Generala-resp">Jugar</button>
+                        </div>
+                    </div> 
+                </div>
+                <div class="parte-carrusel-resp">
+                    <div class="tarjeta-juego-resp">
+                        <img src="images/deportes/fifa.jpeg" alt="FIFA">
+                        <p class="titulo-tarjeta-resp">FIFA</p>
+                        <div class="conteiner-precioBtnComprar-resp">
+                            <p class="precio-juego-tarjeta-resp"></p>
+                            <button  class="btn-jugar-resp" id="btn-jugar-FIFA-resp">Jugar</button>
+                        </div>   
+                    </div>
+                </div>
+            </div>    
+            <ul class="puntos-dos-resp">
+                <li class="punto-dos-resp activo-resp"></li>
+                <li class="punto-dos-resp"></li>
+                <li class="punto-dos-resp"></li>
+                <li class="punto-dos-resp"></li>
+                <li class="punto-dos-resp"></li>
+                <li class="punto-dos-resp"></li>
+            </ul> 
+        </div>
+        <h2>Deportes</h2>
+        <div class="carrusel-resp">
+            <div class="caja-carrusel-tres-resp">
+                <div class="parte-carrusel-resp">
+                    <div class="tarjeta-juego-resp">
+                        <img src="images/deportes/daitona.jpg" alt="Daitona">
+                        <p class="titulo-tarjeta-resp">Daitona</p>
+                        <div class="conteiner-precioBtnComprar-resp">
+                            <p class="precio-juego-tarjeta-resp"></p>
+                            <button  class="btn-jugar-resp" id="btn-jugar-Daitona-resp">Jugar</button>
+                        </div> 
+                    </div>
+                </div>
+                <div class="parte-carrusel-resp">
+                    <div class="tarjeta-juego-resp">
+                        <img src="images/deportes/fifa.jpeg" alt="FIFA">
+                        <p class="titulo-tarjeta-resp">FIFA</p>
+                        <div class="conteiner-precioBtnComprar-resp">
+                            <p class="precio-juego-tarjeta-resp"></p>
+                            <button  class="btn-jugar-resp" id="btn-jugar-FIFA-resp">Jugar</button>
+                        </div>   
+                    </div>  
+                </div>
+                <div class="parte-carrusel-resp">
+                    <div class="tarjeta-juego-resp">
+                        <div class="conteiner-imgCart-resp">
+                            <img src="images/deportes/goal3.jpg" alt="Goal3">
+                            <p id="cart-inImg-Goal3Resp"></p>
+                        </div>
+                        <p class="titulo-tarjeta-resp">Goal 3</p>
+                        <div class="conteiner-precioBtnComprar-resp">
+                            <p class="precio-juego-tarjeta-resp">$150</p>
+                            <button  class="btn-comprar-resp" id="btn-comprar-Goal3-resp"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="parte-carrusel-resp">
+                    <div class="tarjeta-juego-resp">
+                        <div class="conteiner-imgCart-resp">
+                            <img src="images/deportes/microMachine.jpg" alt="MicroMachine">
+                            <p id="cart-inImg-MicroMachineResp"></p>
+                        </div>
+                        <p class="titulo-tarjeta-resp">MicroMachine</p>
+                        <div class="conteiner-precioBtnComprar-resp">
+                            <p class="precio-juego-tarjeta-resp">$150</p>
+                            <button  class="btn-comprar-resp" id="btn-comprar-MicroMachine-resp"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </div> 
+                </div>
+                <div class="parte-carrusel-resp">
+                    <div class="tarjeta-juego-resp">
+                        <div class="conteiner-imgCart-resp">
+                            <img src="images/deportes/PingPong.jpg" alt="PingPong">
+                            <p id="cart-inImg-PingPongResp"></p>
+                        </div>
+                        <p class="titulo-tarjeta-resp">Ping Pong</p>
+                        <div class="conteiner-precioBtnComprar-resp">
+                            <p class="precio-juego-tarjeta-resp">$150</p>
+                            <button  class="btn-comprar-resp" id="btn-comprar-PingPong-resp"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>               
+                    </div>
+                </div>
+                <div class="parte-carrusel-resp">
+                    <div class="tarjeta-juego-resp">
+                        <img src="images/deportes/tenis.jpg" alt="VirtualTenis">
+                        <p class="titulo-tarjeta-resp">Virtual Tenis</p>
+                        <div class="conteiner-precioBtnComprar-resp">
+                            <p class="precio-juego-tarjeta-resp"></p>
+                            <button  class="btn-jugar-resp" id="btn-jugar-VirtualTenis-resp">jugar</button>
+                        </div>                
+                    </div>  
+                </div>
+                <div class="parte-carrusel-resp">
+                    <div class="tarjeta-juego-resp">
+                        <img src="images/juegoDeMesa/chinchon.jpg" alt="Chichon">
+                        <p class="titulo-tarjeta-resp">Chichon</p>
+                        <div class="conteiner-precioBtnComprar-resp">
+                            <p class="precio-juego-tarjeta-resp"></p>
+                            <button  class="btn-jugar-resp" id="btn-jugar-Chichon-resp">jugar</button> 
+                        </div>
+                    </div>
+                </div>
+                <div class="parte-carrusel-resp">
+                    <div class="tarjeta-juego-resp">
+                        <img src="images/deportes/Voley.jpeg" alt="VirtualVoley">
+                        <p class="titulo-tarjeta-resp">Virtual Voley</p>
+                        <div class="conteiner-precioBtnComprar-resp">
+                            <p class="precio-juego-tarjeta-resp"></p>
+                            <button  class="btn-jugar-resp" id="btn-jugar-VirtualVoley-resp">Jugar</button>
+                        </div>               
+                    </div> 
+                </div>
+            </div>
+            <ul class="puntos-tres-resp">
+                <li class="punto-tres-resp activo-resp"></li>
+                <li class="punto-tres-resp"></li>
+                <li class="punto-tres-resp"></li> 
+                <li class="punto-tres-resp"></li>
+                <li class="punto-tres-resp"></li>
+                <li class="punto-tres-resp"></li>
+        </div>
+    </Section>
+    <!-- FIN CARRUSELES RESPONSIVE-->
+    <footer>
+        <div class="primerFooter">
+            <div class="conteiner-titulo-primer-footer">
+                <p class="titulo-primer-footer">Juegos más solicitados de la semana</p>
+            </div>
+            <div class="conteiner-cards-footer">
+                <div class="card-footer">
+                    <img src="images/4EnLinea/4EnLinea-2.jpg" alt="4enlinea">
+                    <p class="titulo-tarjeta-footer">4 En Linea</p>
+                </div>   
+                <div class="card-footer">
+                    <img src="images/pelea/mortalKombat.jpg" alt="MortalKombat">
+                    <p class="titulo-tarjeta-footer">MortalKombat</p>
+                </div>
+                <div class="card-footer">
+                    <img src="images/clasicos/counterStrike.jpg" alt="CounterStrike">
+                    <p class="titulo-tarjeta-footer">CounterStrike</p>
+                </div>
+                <div class="card-footer">
+                    <img src="images/family/MarioBross.webp" alt="MarioBross">
+                    <p class="titulo-tarjeta-footer">MarioBross</p>
+                </div>
+                <div class="card-footer">
+                    <img src="images/deportes/fifa.jpeg" alt="FIFA">
+                    <p class="titulo-tarjeta-footer">FIFA</p>
+                </div> 
+            </div>
+        </div>
+        <div class="segundoFooter">
+            <div class="iconos-redes">
+                <i class="fa-brands fa-facebook-square"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-tiktok"></i>
+            </div>
+        </div>
+        <div class="tercerFooter">
+            <a href="index.html">GameRoom</a>
+            <a href="">Privacidad</a>
+            <a href="">Ayuda</a>
+            <a href="">FAQ`S</a>
+            <a href="">Terminos de uso</a>
+        </div>
+    </footer>
+    <script src="js/home.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/loader.js"></script>
+</body>
+</html>
