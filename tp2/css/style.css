@@ -333,3 +333,33 @@ nav ul li{
     background-color: #490485;
 }
 
+/* PAGINA 4 EN LINEA */
+
+.conteiner-img-ppal {
+    width: 76%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 520px;
+    margin-top: 47px;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+.conteiner-img-ppal img{
+
+    width: 100%;
+    height: 100%;
+    
+}
+
+.btn-jugar-ppal{
+    height: 85px;
+    width: 191px;
+    border-radius: 30px;
+    position: absolute;
+    background-color: #6E7AE2;
+    color: #F3F4FE;
+    font-size: 170%;
+    border-style: none;
+}
