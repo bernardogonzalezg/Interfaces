@@ -1,7 +1,7 @@
 "use strict";
 
 //document.querySelector(".burguer").addEventListener("click", mostrarMenu);
-document.querySelector("#btn-comprar-Circus").addEventListener("click", GamebuyCircus);    
+/*document.querySelector("#btn-comprar-Circus").addEventListener("click", GamebuyCircus);    
 document.querySelector("#btn-comprar-Tetris").addEventListener("click", GamebuyTetris);  
 document.querySelector("#btn-comprar-Galaga").addEventListener("click", GamebuyGalaga);  
 document.querySelector("#btn-comprar-Truco").addEventListener("click", GamebuyTruco);
@@ -20,7 +20,7 @@ document.querySelector("#btn-comprar-Uno-resp").addEventListener("click", Gamebu
 document.querySelector("#btn-comprar-Goal3-resp").addEventListener("click", GamebuyGoal3Resp);
 document.querySelector("#btn-comprar-MicroMachine-resp").addEventListener("click", GamebuyMicroMachineResp);
 document.querySelector("#btn-comprar-PingPong-resp").addEventListener("click", GamebuyPingPongResp);
-
+*/
 function GamebuyCircusResp(){
     let carrito = document.querySelector("#cart-inImg-CircusResp");
     console.log(carrito);
@@ -182,8 +182,9 @@ const punto = document.querySelectorAll(".punto");
 
 punto.forEach( (cadaPunto, i) => {
     punto[i].addEventListener("click", () => {
+        console.log(punto[i]);
         let posicion = i;
-        let operacion = posicion * -25;
+        let operacion = posicion * -13.5;
         caja.style.transform = `translateX(${ operacion }%)`;
 
         punto.forEach( (cadaPunto, i) =>{
@@ -197,10 +198,10 @@ punto.forEach( (cadaPunto, i) => {
 const cajaDos = document.querySelector(".caja-carrusel-dos");
 const puntoDos = document.querySelectorAll(".punto-dos");
 
-puntoDos.forEach( (cadaPunto, i) => {
+puntoDos.forEach( ( i) => {
     puntoDos[i].addEventListener("click", () => {
         let posicion = i;
-        let operacion = posicion * -25;
+        let operacion = posicion * -33;
         cajaDos.style.transform = `translateX(${ operacion }%)`;
 
         punto.forEach( (cadaPunto, i) =>{
