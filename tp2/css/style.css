@@ -264,7 +264,7 @@ h3 {
     border-radius: 5px;
 }
 
-.caja-carrusel{
+.caja-carrusel-personalizado, .caja-carrusel-accion, .caja-carrusel-aventura, .caja-carrusel-carrera{
     width: 153%;
     display: flex;
     justify-content: start;
@@ -328,7 +328,7 @@ h3 {
 
 .btn-jugar, .btn-comprar{
     height: 42px;
-    width: 40%;
+    width: 56%;
     border-radius: 40px;
     background-color: #E0D5EA;
     color: #490483;
@@ -351,7 +351,7 @@ h3 {
 }
 
 .btn-comprar{
-    width: 52%;
+    width: 62%;
     background-color:  #B96DFC;
     color: #E0D5EA;
     border: 2px solid #490485;
@@ -363,9 +363,7 @@ h3 {
     color: #490483;
 }
 
-
-
-.puntos{
+.puntos-personalizado, .puntos-accion, .puntos-aventura, .puntos-carrera{
     width: 100%;
     padding: 1em;
     display: flex;
@@ -374,7 +372,7 @@ h3 {
     align-items: center;
 }
 
-.punto.activo, .punto{
+.punto-personalizado, .punto-accion, .punto-aventura, .punto-carrera{
     background-color: #4152F1;
     width: 4%;
     height: 7px;
@@ -383,7 +381,7 @@ h3 {
     list-style-type: none
 }
 
-.punto.activo{
+.punto-personalizado.activo, .punto-accion.activo, .punto-aventura.activo, .punto-carrera.activo{
     background-color: #490485;
 }
 
