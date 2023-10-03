@@ -1,6 +1,6 @@
 "use strict"
 
-// MUNES DESPLEGBLES
+// MUNES DESPLEGABLE
 
 document.querySelector(".burger").addEventListener("click", mostrarMenu);
 
