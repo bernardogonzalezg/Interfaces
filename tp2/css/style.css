@@ -274,6 +274,7 @@ h3 {
 }
 
 .tarjeta-juego, .tarjeta-compra{
+    background-color: #6A0BBD;
     width: 11%;
     display: flex;
     flex-direction: column;
@@ -285,12 +286,10 @@ h3 {
 }
 
 .tarjeta-juego{
-    background-color: #6A0BBD;
     border: solid 1px #DC972A;
 }
 
 .tarjeta-compra{
-    background-color: #FFCF84;
     border: solid 1px #DC972A;
 }
 
@@ -313,16 +312,11 @@ h3 {
     letter-spacing: 4px;
 }
 
-.titulo-tarjeta-juego{
+.titulo-tarjeta-juego, .titulo-tarjeta-compra, .precio-tarjeta-compra{
     color: #FBC062;
 }
 
-.titulo-tarjeta-compra{
-    color: #490485;
-}
-
 .precio-tarjeta-compra{
-    color: #754800;
     font-weight: 800;
 }
 
@@ -428,6 +422,19 @@ h3 {
     color: #203A88;
     font-size: 20px;
     border: 2px solid color(#490485);
+}
+
+.btn-jugar:hover{
+    color: #C0C6FA;
+    box-shadow: inset 200px 0 0 0 #4152F1;
+}
+
+.btn-jugar-personalizaada:hover{
+    background-color: #4152F1;
+    transition: all 2s;
+    -webkit-transform: rotateY(-360deg);
+        -ms-transform: rotateY(-360deg);
+        transform: rotateY(-360deg);
 }
 
 .compartir-redes {
