@@ -71,7 +71,6 @@ puntoCarrera.forEach( (cadaPunto, i) => {
         let posicion = i;
         let operacion = posicion * -17.5;
         cajaCarrera.style.transform = `translateX(${ operacion }%)`;
-
         puntoCarrera.forEach( (cadaPunto, i) =>{
             puntoCarrera[i].classList.remove("activo");
         })
@@ -79,6 +78,24 @@ puntoCarrera.forEach( (cadaPunto, i) => {
     });
     
 });
+
+//card compra
+
+let btnCompra = document.querySelectorAll(".btn-comprar");
+
+btnCompra.forEach( (i) => {
+    i.addEventListener("click", () => {
+        let nombre = i.dataset.name;
+        if(i.innerHTML == "Comprar"){
+            document.querySelector(`#precio-tarjeta-${nombre}`).innerHTML = "Comprado";
+            i.innerHTML = "Quitar"
+        }else{
+            document.querySelector(`#precio-tarjeta-${nombre}`).innerHTML = "$2000";
+            i.innerHTML = "Comprar"
+        }
+    });
+});
+      
 
 
 

@@ -44,7 +44,7 @@ progress::-webkit-progress-bar {
 }
 
 .progress {
-    color: E0D5EA;
+    color: #E0D5EA;
     padding: 0px;
     margin: 0px;
     display: flex;
@@ -352,6 +352,10 @@ h3 {
     margin-top: 6%;
 }
 
+.ocultar-btn-compra{
+    display: hidden;
+}
+
 .tarjeta-juego .btn-jugar a{
     text-decoration: none;
     color: #490483;
@@ -657,8 +661,9 @@ h3 {
 }
 
 footer .titulo-categoria{
-    padding-left: 20%;
+    padding-left: 30%;
     padding-top: 3%;
+    margin-top: 2%;
     background-color: #203A88;
     color: #E0D5EA;
     font-weight: bold;
@@ -668,7 +673,7 @@ footer .titulo-categoria{
     display: flex;
     justify-content: center;
     text-align: center;
-    padding: 4% 3%;
+    padding: 2% 3%;
 }
 
 
