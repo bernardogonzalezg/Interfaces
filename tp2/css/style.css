@@ -796,7 +796,7 @@ footer .titulo-categoria{
    
 }
 
-.inicio-sesion {
+.inicio-sesion, .registro {
     cursor: pointer;
     background: transparent;
     margin-left: 10px;
@@ -818,6 +818,29 @@ footer .titulo-categoria{
     margin-left: 237px;
 }
 
-.nomostrar {
+#login {
     display: none;
+}
+
+.mensaje-exito {
+    display: none;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    animation: slide-down 1s ease-in-out;
+}
+
+@keyframes slide-down {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
