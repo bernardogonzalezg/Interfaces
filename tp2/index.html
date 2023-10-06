@@ -26,7 +26,7 @@
             <h1>Registrarse</h1>
             <form class="input-group">
                 <div>
-                    <h2>Nombre y Apellido</h2>
+                    <h2>Nombre y Apellido *</h2>
                     <input type="text" class="name">
                 </div>
                 <div>
@@ -34,19 +34,19 @@
                     <input type="text" class="nick">
                 </div>
                 <div>
-                    <h2>Edad</h2>
+                    <h2>Edad *</h2>
                     <input type="number" class="edad">
                 </div>
                 <div>
-                    <h2>Correo Electronico</h2>
+                    <h2>Correo Electronico *</h2>
                     <input type="email" class="email">
                 </div>
                 <div>
-                    <h2>Contraseña</h2>
+                    <h2>Contraseña *</h2>
                     <input type="email" class="email">
                 </div>
                 <div>
-                    <h2>Repetir Contraseña</h2>
+                    <h2>Repetir Contraseña *</h2>
                     <input type="email" class="email">
                 </div>
                 <button type="button" class="btn-registro">Registrarse</button>
@@ -67,21 +67,23 @@
                 <div>
                     <input type="text" class="nick" placeholder="Contraseña">
                 </div>
+                <button class="ingresar-google"><i class="fa-brands fa-google"></i><span>Iniciar sesión con Google</span></button>
+                <button class="ingresar-facebook"><i class="fa-brands fa-facebook"></i><span>Iniciar sesión con Facebok</span></buttonp>
                 <button type="button" class="btn-registro"><a href="home.html">Ingresar</a></button>
             </form>
-            
             <div class="option-login">
                 <span>¿ Aun no tienes cuenta ?</span><button type="button" class="registro">Registrarse</button>
             </div>
         </div>
     </div>
-
     <div id="registro-exitoso" class="mensaje-exito">
         <p>¡Registro exitoso, Bienvenido a InstaGame!</p>
     </div>
-
     <footer>
-        <p class="titulo-categoria">Juegos por Categorías</p>
+        <div class="titulos">
+             <p>Juegos por Categorías</p>
+             <p>Seguinos en la redes</p>
+        </div>
         <div class="primerFooter">
             <div class="conteiner-izquierda-primer-footer">
                 <img src="images/nav/logo-game.jpg" alt="logo">
@@ -99,7 +101,7 @@
                 </ul>
             </div>
             <div class="conteiner-derecha-primer-footer">
-                <p>Seguinos en la redes</p>
+                
                 <div class="iconos-redes">
                     <i class="fa-brands fa-facebook-square"></i>
                     <i class="fab fa-instagram"></i>
