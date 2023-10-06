@@ -30,6 +30,13 @@ function mostrarMensajeExito() {
         mensajeExito.style.display = 'none';
 
         // Redirige a la página deseada
-        window.location.href = 'home.html'; // Cambia 'otra_pagina.html' por la URL a la que deseas redirigir al usuario
-    }, 3000); // 3000 milisegundos = 3 segundos
+        window.location.href = 'home.html'; 
+    }, 3000);
+}
+
+let captcha = document.querySelector("#captcha").addEventListener("click", cambiarCaptcha);
+
+function cambiarCaptcha(){
+    let img = document.querySelector(".captcha");
+    img.src = "images/captcha/captcha-exito.jpg";
 }

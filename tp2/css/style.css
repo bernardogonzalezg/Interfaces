@@ -827,6 +827,12 @@ color:#E0D5EA;
     text-decoration: none;
 } 
 
+.captcha{
+    width: 45%;
+    margin-left: 27%;
+    border-radius: 23px
+}
+
 .ingresar-facebook, .ingresar-google{
     background-color: #E0D5FA;
     border-radius: 50px;
