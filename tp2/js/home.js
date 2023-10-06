@@ -1,13 +1,5 @@
 "use strict";
 
-function GamebuyCircusResp(){
-    let carrito = document.querySelector("#cart-inImg-CircusResp");
-    console.log(carrito);
-    let string = "fa-solid fa-cart-arrow-down";
-    carrito.innerHTML = `<i class="${string}"></i>`;
-}
-
-
 //CARRUSELES
 
 const cajaPersonalizado = document.querySelector(".caja-carrusel-personalizado");
