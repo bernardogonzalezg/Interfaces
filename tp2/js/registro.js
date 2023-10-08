@@ -1,20 +1,23 @@
 "use strict"
 
-const registroButton = document.querySelector('.registro');
-const inicioSesionButton = document.querySelector('.inicio-sesion');
+const btnGoLogeo = document.querySelector('.inicio-sesion');
+const btnGoRegistro = document.querySelector('.registro');
+const formRegister = document.querySelector('.container-registro');
+const formlogeo = document.querySelector('.container-logeo');
 
-const registroForm = document.getElementById('registro');
-const loginForm = document.getElementById('login');
-
-inicioSesionButton.addEventListener('click', () => {
-    registroForm.style.display = 'none';
-    loginForm.style.display = 'block';
+btnGoLogeo.addEventListener('click', () => {
+    formRegister.classList.add("container-inactivo");
+    formRegister.classList.remove("container-activo");
+    formlogeo.classList.add("container-activo");
+    formlogeo.classList.remove("container-inactivo");
     window.scrollTo(0, 0);
 });
 
-registroButton.addEventListener('click', () => {
-    loginForm.style.display = 'none';
-    registroForm.style.display = 'block';
+btnGoRegistro.addEventListener('click', () => {
+    formRegister.classList.add("container-activo");
+    formRegister.classList.remove("container-inactivo");
+    formlogeo.classList.add("container-inactivo");
+    formlogeo.classList.remove("container-activo");
     window.scrollTo(0, 0);
 });
 
