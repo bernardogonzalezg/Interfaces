@@ -387,7 +387,7 @@ h3 {
 }
 
 .conteiner-juego-img {
-    background-image: url(/tp2/images/4enLinea/4EnLinea-1.jpg);
+    background-image: url(https://bernardogonzalezg.github.io/Interfaces/tp2/images/4enLinea/4EnLinea-1.jpg);
     background-size: cover;
     width: 100%;
     height: 100%;
@@ -415,6 +415,7 @@ h3 {
 }
 
 .compartir-redes {
+    margin-top: 50px;
     display: flex;
     align-items: center;
     width: 76%;
