@@ -1,4 +1,3 @@
-
 /*RESPONSIVE HOME*/
 
 
@@ -160,6 +159,13 @@ nav ul li{
     list-style: disc;
 }
 
+#titulo {
+    padding: 10px;
+    margin: 0px;
+    color: #E0D5EA;
+    font-size: 18px;
+}
+
 /*Juegos Personalizados*/
 
 
@@ -238,7 +244,7 @@ h1 {
 }
 
 h2 {
-    padding: 2% 0% 1% 2%;
+    padding: 2% 0% 1% 0%;
     font-size: 20px;
 }
 
@@ -310,11 +316,10 @@ h3 {
 }
 
 .btn-jugar, .btn-comprar{
+    cursor: pointer;
     height: 42px;
     width: 56%;
     border-radius: 40px;
-    background-color: #E0D5EA;
-    color: #490483;
     border-style: none;
     border: 2px solid #490485;
     margin-bottom: 8%;
@@ -324,31 +329,62 @@ h3 {
     font-weight: 700;
     line-height: normal;
     letter-spacing: 5px;
+    position: relative;
+    overflow: hidden; 
 }
 
 .btn-jugar{
     background-color: #E0D5EA;
     color: #490483;
-    border: 2px solid #490485;
     margin-top: 14%;
+    z-index: 1;
 }
 
-.btn-jugar:hover{
-    color: #C0C6FA;
-    box-shadow: inset 200px 0 0 0 #4152F1;
+.btn-jugar::after {
+    content: "";
+    width: 100%;
+    height: 100%; /* Cambiamos el valor de height al 100% para cubrir todo el botón */
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: -100%; /* Inicialmente, el pseudo-elemento está fuera del botón */
+    background-color: #9D2DFF;
+    transition: .4s ease-in-out all;
+}
+
+.btn-jugar:hover::after {
+	left: 0;
+}
+
+.btn-comprar::after {
+	content: "";
+	width: 1px;
+	height: 1px;
+	background: none;
+	position: absolute;
+	z-index: -1;
+	top: 50%;
+	left: 50%;
+	transition: .5s ease-in-out all;
+	border-radius: 100px;
+	transform-origin: center;   
+}
+
+.btn-comprar:hover::after {
+	transform: scale(400);
+	background: #FFCF84;
 }
 
 .btn-comprar{
     width: 62%;
     background-color:  #B96DFC;
     color: #E0D5EA;
-    border: 2px solid #490485;
     margin-top: 6%;
+    z-index: 1;
 }
 
-.btn-comprar:hover{
-    color: #490485;
-    box-shadow: inset 200px 0 0 0 #FFCF84;
+.btn-comprar:hover {
+    color: #490485; /* Cambiamos el color del texto al hacer hover */
 }
 
 .tarjeta-juego .btn-jugar a{
@@ -361,6 +397,57 @@ h3 {
 }
 
 /* PAGINA 4 EN LINEA */
+
+.breadcrum {
+    font-family: Nunito;
+    font-style: normal;
+    line-height: normal;
+    background-color: #8015DE;
+    color: #E0D5EA;
+    padding: 10px;
+    margin-left: 12%;
+    margin-top: 10px;
+    width: 24%;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+/* Estilos para la lista ordenada */
+ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+/* Estilos para cada elemento de la lista */
+li {
+    width: auto;
+    font-size: 14px;
+}
+
+/* Estilos para los enlaces */
+a {
+    text-decoration: none;
+    color: #C0C6FA;
+    transition: color 0.3s ease;
+}
+
+/* Estilo para los enlaces en hover */
+a:hover {
+    color: #490483;
+}
+
+/* Estilos para los elementos <li> separados */
+li:not(:last-child) {
+    margin-right: 5px;
+}
+
+li a::after {
+    content: "▶";
+    margin-left: 5px;
+    color: #490483;
+}
 
 .pagina4enLinea h1 {
     margin-left: 3%;
@@ -386,6 +473,7 @@ h3 {
 }
 
 .conteiner-juego-img {
+    margin-top: 15px;
     position: relative;
     width: 100%;
     height: 100%;
@@ -761,7 +849,7 @@ color:#E0D5EA;
 }
 
 .form-box {
-    width: 601px;
+    width: 50%;
     height: auto;
     background-color: #6A0BBD;
     position: relative;
@@ -789,7 +877,7 @@ color:#E0D5EA;
 }
 
 .input-group h2{
-    margin-left: 2%;
+    margin-left: 4%;
     color:#E0D5EA;
 }
 
@@ -832,6 +920,8 @@ color:#E0D5EA;
     margin-bottom: 10px;
     margin-left: 34%;
     font-size: 140%;
+    cursor: pointer;
+
 }
 
 .btn-registro:hover{
