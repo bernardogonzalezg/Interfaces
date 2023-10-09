@@ -306,11 +306,16 @@ h3 {
     font-weight: 700;
     line-height: normal;
     letter-spacing: 4px;
+    width: 100%;
+    justify-content: center;
 }
 
 .titulo-tarjeta-juego, .titulo-tarjeta-compra, .precio-tarjeta-compra{
     color: #FBC062;
+
 }
+
+
 
 .precio-tarjeta-compra{
     font-weight: 800;
@@ -408,7 +413,7 @@ h3 {
     padding: 10px;
     margin-left: 12%;
     margin-top: 10px;
-    width: 24%;
+    width: max-content;
     margin-bottom: 20px;
     border-radius: 5px;
 }
@@ -421,8 +426,12 @@ ol {
 }
 
 li {
-    width: auto;
+    width: min-content;
     font-size: 12px;
+}
+
+.bvs {
+    width: auto;
 }
 
 a {
