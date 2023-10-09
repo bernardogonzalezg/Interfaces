@@ -146,7 +146,7 @@ header{
     width:fit-content;
     height: min-content;
     background-color: #6A0BBD;
-    opacity: 0.8;
+    opacity: 0.9;
     color: #E0D5EA;
     border-radius: 10px;
     z-index: 100;
@@ -422,7 +422,7 @@ ol {
 
 li {
     width: auto;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 a {
@@ -758,7 +758,6 @@ footer .titulos{
 
 .titulos p {
     padding-left: 8%;
-    padding-right: 5%;
     padding-top: 6%;
     margin-top: 1%;
     color: #E0D5EA;
@@ -770,7 +769,7 @@ footer .titulos{
     display: flex;
     justify-content: center;
     text-align: center;
-    padding: 7% 3%;;
+    padding: 7% 0%;
 }
 
 
@@ -786,7 +785,7 @@ footer .titulos{
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    margin-left: 10%;
+    margin-left: 6%;
     font-size: 70%;
 }
 
@@ -838,7 +837,7 @@ color:#E0D5EA;
 }
 
 .segundoFooter{
-    background-color: #4152F1;
+    background-color: #203AB2;
     display: flex;
     justify-content: center;
 }
@@ -940,7 +939,10 @@ color:#E0D5EA;
     margin-left: 34%;
     font-size: 140%;
     cursor: pointer;
+}
 
+.btn-registro a{
+    color: #490485;
 }
 
 .btn-registro:hover{
@@ -1048,10 +1050,12 @@ color:#E0D5EA;
     }
 
     .show {
+        top: 8.2%;
         border-radius: 5%;
         padding-right: 1%;
+        opacity: 0.8;
     }
-
+    
     /*Juegos Personalizados*/
 
     .conteiner-juegos-personalizados{
@@ -1095,7 +1099,7 @@ color:#E0D5EA;
     
     .titulos p {
         padding-left: 18%;
-        padding-right: 7%;
+        padding-right: 8%;
         padding-top: 3%;
         font-size: 100%;
     }
