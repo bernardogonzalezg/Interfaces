@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1d972d2727.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet"  href="css/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Home</title>
+</head>
+<body>
+	<div class="progress">
+	    <p>Cargando InstaGame</p>
+	    <progress id="cargaBarra" max="100" value="100"></progress>
+	    <span></span>
+	</div>
+    <header>
+        <div class="left-header">
+            <button class="burger"><i class="fa-solid fa-bars"></i></button>
+            <a href="home.html"><img src="images/nav/logo-game.jpg" alt="logo"></img></a>
+            <h1 id="titulo">InstaGame</h1>
+        </div>
+        <div class="right-header"> 
+            <img src="images/nav/user.jpg" alt="foto-usuario">
+        </div>
+    </header>
+    <nav class="menu">
+        <ul>
+            <li>Perfil</li>
+            <li>Recientes</li>
+            <li>Logros</li>
+            <li>Acción</li>
+            <li>Aventura</li>
+            <li>Carrera</li>
+            <li>Desportes</li>
+            <li>Futbol</li>
+            <li>Más jugados</li>
+        </ul>
+    </nav>
+    <section class="conteiner-personalizados">
+        <h1>Mejores juegos gratuitos</h1>
+            <div class="conteiner-juegos-personalizados">
+                <div class="card-personalizada">
+                    <img src="images/cardPersonalizadas/battle-stulga.jpg" alt="battle-stulga">
+                    <p>Battle Stulga</p>
+                    <button class="btn-jugar-personalizaada">Jugar</button>
+                </div>
+                <div class="card-personalizada">
+                    <img src="images/cardPersonalizadas/conter-strike.jpg" alt="Counter Strike">
+                    <p>Counter Strike</p>
+                    <button class="btn-jugar-personalizaada">Jugar</button>
+                </div>
+                <div class="card-personalizada">
+                    <img src="images/cardPersonalizadas/donkey-kong.jpg" alt="Donkey Kong">
+                    <p>Donkey Kong</p>
+                    <button class="btn-jugar-personalizaada">Jugar</button>
+                </div>
+                <div class="card-personalizada">
+                    <img src="images/cardPersonalizadas/mario-cart-64.jpg" alt="Mario Cart 64">
+                    <p>Mario Cart 64</p>
+                    <button class="btn-jugar-personalizaada">Jugar</button>
+                </div>
+                <div class="card-personalizada">
+                    <img src="images/cardPersonalizadas/FernanFlo.jpg" alt="FernanFlo">
+                    <p>FernanFlo</p>
+                    <button class="btn-jugar-personalizaada">Jugar</button>
+                </div>
+                <div class="card-personalizada">
+                    <img src="images/cardPersonalizadas/footbal-head.jpg" alt="Football Head">
+                    <p>Football Head</p>
+                    <button class="btn-jugar-personalizaada">Jugar</button>
+                </div>
+                <div class="card-personalizada">
+                    <img src="images/cardPersonalizadas/king-of-Fighters.jpg" alt="King of Fighters">
+                    <p>King of Fighters</p>
+                    <button class="btn-jugar-personalizaada">Jugar</button>
+                </div>
+                <div class="card-personalizada">
+                    <img src="images/cardPersonalizadas/monopoly.jpg" alt="Monopoly">
+                    <p>Monopoly</p>
+                    <button class="btn-jugar-personalizaada">Jugar</button>
+                </div>
+                <div class="card-personalizada">
+                    <img src="images/cardPersonalizadas/Plantas-Vs-Zombies.jpg" alt="Plantas Vs Zombies">
+                    <p>Plantas Vs Zombies</p>
+                    <button class="btn-jugar-personalizaada">Jugar</button>
+                </div>
+                <div class="card-personalizada">
+                    <img src="images/cardPersonalizadas/ShellBoy.jpg" alt="ShellBoy">
+                    <p>ShellBoy</p>
+                    <button class="btn-jugar-personalizaada">Jugar</button>
+                </div>
+                <div class="card-personalizada">
+                    <img src="images/cardPersonalizadas/Slither.jpg" alt="Slither">
+                    <p>Slither</p>
+                    <button class="btn-jugar-personalizaada">Jugar</button>
+                </div>
+                <div class="card-personalizada">
+                    <img src="images/cardPersonalizadas/Solitario-Spider.jpg" alt="Solitario Spider">
+                    <p>Solitario Spider</p>
+                    <button class="btn-jugar-personalizaada">Jugar</button>
+                </div>
+                <div class="card-personalizada">
+                    <img src="images/cardPersonalizadas/Super-Mario-Bross.jpg" alt="Super Mario Bross">
+                    <p>Super Mario Bross</p>
+                    <button class="btn-jugar-personalizaada">Jugar</button>
+                </div>
+                <div class="card-personalizada">
+                    <img src="images/cardPersonalizadas/Dragon-Ball-Z.jpg" alt="Dragon Ball Z">
+                    <p>Dragon Ball Z</p>
+                    <button class="btn-jugar-personalizaada">Jugar</button>
+                </div>
+            </div>
+    </section>
+    <section class="carrusel-normal">
+        <h1>Juegos seleccionados para Vos</h1>
+        <div class="carrusel">
+            <div class="caja-carrusel-personalizado">
+                <div class="tarjeta-juego">
+                    <img src="images/card-juegos-carrusel/4-en-linea.jpg" alt="4enlinea">
+                    <p class="titulo-tarjeta-juego">4 En Linea</p>
+                    <p class="precio-juego-tarjeta"></p>
+                    <button class="btn-jugar" id="btn-jugar-4enlinea"><a href="4enLinea.html">Jugar</a></button>    
+                </div>
+                <div class="tarjeta-juego">
+                    <img src="images/card-juegos-carrusel/bomberman.jpg" alt="Super Bomberman">  
+                    <p class="titulo-tarjeta-juego">Super Bomberman</p>
+                    <p class="precio-tarjeta-compra"></p>
+                    <button class="btn-jugar" id="btn-comprar-Bomberman">Jugar</button>                     
+                </div> 
+                <div class="tarjeta-juego">
+                    <img src="images/card-juegos-carrusel/dragon-ball.jpg" alt="Dragon Ball Z">
+                    <p class="titulo-tarjeta-juego">Dragon Ball Z</p>
+                    <p class="precio-juego-tarjeta"></p>
+                    <button class="btn-jugar" id="btn-jugar-BattleCity">Jugar</button>
+                </div> 
+                <div class="tarjeta-compra">
+                    <img src="images/card-juegos-carrusel/pokemon.jpg" alt="Pokemon">
+                    <p class="titulo-tarjeta-compra">Pokemon</p>
+                    <p class="precio-tarjeta-compra" id="precio-tarjeta-pokemon">$2000</p>
+                    <button class="btn-comprar" id="btn-comprar-pokemon" data-name="pokemon">Comprar</button>
+                </div>                   
+                <div class="tarjeta-juego">
+                    <img src="images/card-juegos-carrusel/anime.jpg" alt="Anime">
+                    <p class="titulo-tarjeta-juego">Anime</p>
+                    <p class="precio-juego-tarjeta"></p>
+                    <button class="btn-jugar" id="btn-jugar-PacMan">Jugar</button>  
+                </div>
+                <div class="tarjeta-compra">
+                    <img src="images/card-juegos-carrusel/grimace.jpg" alt="Grimace">
+                    <p class="titulo-tarjeta-compra">Grimace</p>
+                    <p class="precio-tarjeta-compra" id="precio-tarjeta-grimace">$2000</p>
+                    <button class="btn-comprar" id="btn-comprar-grimace" data-name="grimace">Comprar</button>
+                </div>   
+                <div class="tarjeta-juego">
+                    <img src="images/card-juegos-carrusel/super-battle.jpg" alt="Super Battle">
+                    <p class="titulo-tarjeta-juego">Super Battle</p>
+                    <p class="precio-juego-tarjeta"></p>
+                    <button class="btn-jugar" id="btn-jugar-CounterStrike">Jugar</button>
+                </div>
+                <div class="tarjeta-juego">
+                    <img src="images/card-juegos-carrusel/crash.jpg" alt="Crash">
+                    <p class="titulo-tarjeta-juego">Crash</p>
+                    <p class="precio-juego-tarjeta"></p>
+                    <button class="btn-jugar" id="btn-jugar-VirtualVoley">Jugar</button>               
+                </div>   
+                <div class="tarjeta-juego">
+                    <img src="images/card-juegos-carrusel/Pokemon2.jpg" alt="Pokemon2">
+                    <p class="titulo-tarjeta-juego">Pokemon2</p>
+                    <p class="precio-juego-tarjeta"></p>
+                    <button class="btn-jugar" id="btn-jugar-VirtualVoley">Jugar</button>               
+                </div>   
+            </div> 
+            <ul class="puntos-personalizado">
+                <li class="punto-personalizado activo"></li>
+                <li class="punto-personalizado"></li>
+                <li class="punto-personalizado"></li>
+            </ul> 
+        </div>
+        <h1>Juegos de Acción</h1>
+        <div class="carrusel">
+            <div class="caja-carrusel-accion">
+                <div class="tarjeta-juego">
+                    <img src="images/card-juegos-carrusel/chaos-faction.jpg" alt="Chaos Faction">
+                    <p class="titulo-tarjeta-juego">Chaos Faction</p>
+                    <p class="precio-juego-tarjeta"></p>
+                    <button class="btn-jugar" id="btn-jugar-4enlinea">Jugar</button>    
+                </div>
+                <div class="tarjeta-juego">
+                    <img src="images/card-juegos-carrusel/Bomber.jpg" alt="Bomber">  
+                    <p class="titulo-tarjeta-juego">Bomber</p>
+                    <p class="precio-tarjeta-compra"></p>
+                    <button class="btn-jugar" id="btn-comprar-Bomberman">Jugar</button>                     
+                </div> 
+                <div class="tarjeta-juego">
+                    <img src="images/card-juegos-carrusel/fan-war.jpg" alt="Fan War">
+                    <p class="titulo-tarjeta-juego">Fan War</p>
+                    <p class="precio-juego-tarjeta"></p>
+                    <button class="btn-jugar" id="btn-jugar-BattleCity">Jugar</button>
+                </div>  
+                <div class="tarjeta-compra">
+                    <img src="images/card-juegos-carrusel/meme-world.jpg" alt="MemeWorld">
+                    <p class="titulo-tarjeta-compra">MemeWorld</p>
+                    <p class="precio-tarjeta-compra" id="precio-tarjeta-MemeWorld">$2000</p>
+                    <button class="btn-comprar" id="btn-comprar-MemeWorld" data-name="MemeWorld">Comprar</button>
+                </div>                   
+                <div class="tarjeta-juego">
+                    <img src="images/card-juegos-carrusel/crash-car.jpg" alt="Crash Car">
+                    <p class="titulo-tarjeta-juego">Crash Car</p>
+                    <p class="precio-juego-tarjeta"></p>
+                    <button class="btn-jugar" id="btn-jugar-PacMan">Jugar</button>  
+                </div>
+                <div class="tarjeta-compra">
+                    <img src="images/card-juegos-carrusel/shot-man.jpg" alt="Shot Man">
+                    <p id="cart-inImg-Galaga"></p>
+                    <p class="titulo-tarjeta-compra">Shot Man</p>
+                    <p class="precio-tarjeta-compra" id="precio-tarjeta-Shot">$2000</p>
+                    <button class="btn-comprar" id="btn-comprar-Shot" data-name="Shot">Comprar</button>
+                </div>   
+                <div class="tarjeta-juego">
+                    <img src="images/card-juegos-carrusel/fight.jpg" alt="Fight">
+                    <p class="titulo-tarjeta-juego">Fight</p>
+                    <p class="precio-juego-tarjeta"></p>
+                    <button class="btn-jugar" id="btn-jugar-CounterStrike">Jugar</button>
+                </div>
+                <div class="tarjeta-juego">
+                    <img src="images/card-juegos-carrusel/laser.jpg" alt="Laser">
+                    <p class="titulo-tarjeta-juego">Laser</p>
+                    <p class="precio-juego-tarjeta"></p>
+                    <button class="btn-jugar" id="btn-jugar-VirtualVoley">Jugar</button>               
+                </div>   
+                <div class="tarjeta-juego">
+                    <img src="images/card-juegos-carrusel/bombucha.jpg" alt="Bumbucha">
+                    <p class="titulo-tarjeta-juego">Bumbucha</p>
+                    <p class="precio-juego-tarjeta"></p>
+                    <button class="btn-jugar" id="btn-jugar-VirtualVoley">Jugar</button>               
+                </div> 
+            </div>    
+            <ul class="puntos-accion">
+                <li class="punto-accion activo"></li>
+                <li class="punto-accion"></li>
+                <li class="punto-accion"></li>
+            </ul> 
+        </div>
+        <h1>Juegos de Aventura</h1>
+        <div class="carrusel">
+            <div class="caja-carrusel-aventura">
+                <div class="tarjeta-juego">
+                    <img src="images/card-juegos-carrusel/scooby-doo.jpg" alt="Scooby Doo">
+                    <p class="titulo-tarjeta-juego">Scooby Doo</p>
+                    <p class="precio-juego-tarjeta"></p>
+                    <button class="btn-jugar" id="btn-jugar-4enlinea">Jugar</button>    
+                </div>
+                <div class="tarjeta-juego">
+                    <img src="images/card-juegos-carrusel/becks-room.jpg" alt="bcks-room">  
+                    <p class="titulo-tarjeta-juego">bcks-room</p>
+                    <p class="precio-tarjeta-compra"></p>
+                    <button class="btn-jugar" id="btn-comprar-Bomberman">Jugar</button>                     
+                </div> 
+                <div class="tarjeta-juego">
+                    <img src="images/card-juegos-carrusel/block-man.jpg" alt="Block Man">
+                    <p class="titulo-tarjeta-juego">Block Man</p>
+                    <p class="precio-juego-tarjeta"></p>
+                    <button class="btn-jugar" id="btn-jugar-BattleCity">Jugar</button>
+                </div> 
+                <div class="tarjeta-compra">
+                    <img src="images/card-juegos-carrusel/gta.jpg" alt="GTA">
+                    <p class="titulo-tarjeta-compra">GTA</p>
+                    <p class="precio-tarjeta-compra" id="precio-tarjeta-GTA">$2000</p>
+                    <button class="btn-comprar" id="btn-comprar-GTA" data-name="GTA">Comprar</button>
+                </div>                   
+                <div class="tarjeta-juego">
+                    <img src="images/card-juegos-carrusel/mario-craft.jpg" alt="Mario Craft">
+                    <p class="titulo-tarjeta-juego">Mario Craft</p>
+                    <p class="precio-juego-tarjeta"></p>
+                    <button class="btn-jugar" id="btn-jugar-PacMan">Jugar</button>  
+                </div>
+                <div class="tarjeta-compra">
+                    <img src="images/card-juegos-carrusel/netbox.jpg" alt="NetBox">
+                    <p class="titulo-tarjeta-compra">NetBox</p>
+                    <p class="precio-tarjeta-compra" id="precio-tarjeta-NetBox">$2000</p>
+                    <button class="btn-comprar" id="btn-comprar-Galaga" data-name="NetBox">Comprar</button>
+                </div>   
+                <div class="tarjeta-juego">
+                    <img src="images/card-juegos-carrusel/piggy.jpg" alt="Piggy">
+                    <p class="titulo-tarjeta-juego">Piggy</p>
+                    <p class="precio-juego-tarjeta"></p>
+                    <button class="btn-jugar" id="btn-jugar-CounterStrike">Jugar</button>
+                </div>
+                <div class="tarjeta-juego">
+                    <img src="images/card-juegos-carrusel/pokemon3.jpg" alt="Pokemon3">
+                    <p class="titulo-tarjeta-juego">Pokemon3</p>
+                    <p class="precio-juego-tarjeta"></p>
+                    <button class="btn-jugar" id="btn-jugar-VirtualVoley">Jugar</button>               
+                </div>   
+                <div class="tarjeta-juego">
+                    <img src="images/card-juegos-carrusel/roblox.jpg" alt="Roblox">
+                    <p class="titulo-tarjeta-juego">Roblox</p>
+                    <p class="precio-juego-tarjeta"></p>
+                    <button class="btn-jugar" id="btn-jugar-VirtualVoley">Jugar</button>               
+                </div> 
+            </div>
+            <ul class="puntos-aventura">
+                <li class="punto-aventura activo"></li>
+                <li class="punto-aventura"></li>
+                <li class="punto-aventura"></li>
+            </ul>
+        </div>
+        <h1>Juegos de Carrera</h1>
+        <div class="carrusel">
+            <div class="caja-carrusel-carrera">
+                <div class="tarjeta-juego">
+                    <img src="images/card-juegos-carrusel/cars.jpg" alt="Cars">
+                    <p class="titulo-tarjeta-juego">Cars</p>
+                    <p class="precio-juego-tarjeta"></p>
+                    <button class="btn-jugar" id="btn-jugar-4enlinea">Jugar</button>    
+                </div>
+                <div class="tarjeta-juego">
+                    <img src="images/card-juegos-carrusel/crazed-taxi.jpg" alt="Crazi Taxi">  
+                    <p class="titulo-tarjeta-juego">Crazi Taxi</p>
+                    <p class="precio-tarjeta-compra"></p>
+                    <button class="btn-jugar" id="btn-comprar-Bomberman">Jugar</button>                     
+                </div> 
+                <div class="tarjeta-juego">
+                    <img src="images/card-juegos-carrusel/evo-f5.jpg" alt="Evo F5">
+                    <p class="titulo-tarjeta-juego">Evo F5</p>
+                    <p class="precio-juego-tarjeta"></p>
+                    <button class="btn-jugar" id="btn-jugar-BattleCity">Jugar</button>
+                </div> 
+                <div class="tarjeta-compra">
+                    <img src="images/card-juegos-carrusel/melonman.jpg" alt="MelonMan">
+                    <p class="titulo-tarjeta-compra">MelonMan</p>
+                    <p class="precio-tarjeta-compra" id="precio-tarjeta-MelonMan">$2000</p>
+                    <button class="btn-comprar" id="btn-comprar-MelonMan" data-name="MelonMan">Comprar</button>
+                </div>                   
+                <div class="tarjeta-juego">
+                    <img src="images/card-juegos-carrusel/nascar.jpg" alt="Nascar">
+                    <p class="titulo-tarjeta-juego">Nascar</p>
+                    <p class="precio-juego-tarjeta"></p>
+                    <button class="btn-jugar" id="btn-jugar-PacMan">Jugar</button>  
+                </div>
+                <div class="tarjeta-compra">
+                    <img src="images/card-juegos-carrusel/real-drive.jpg" alt="Real Drive">
+                    <p id="cart-inImg-Galaga"></p>
+                    <p class="titulo-tarjeta-compra">Real Drive</p>
+                    <p class="precio-tarjeta-compra" id="precio-tarjeta-Drive">$2000</p>
+                    <button class="btn-comprar" id="btn-comprar-Drive" data-name="Drive">Comprar</button>
+                </div>   
+                <div class="tarjeta-juego">
+                    <img src="images/card-juegos-carrusel/street-car.jpg" alt="Street Car">
+                    <p class="titulo-tarjeta-juego">Street Car</p>
+                    <p class="precio-juego-tarjeta"></p>
+                    <button class="btn-jugar" id="btn-jugar-CounterStrike">Jugar</button>
+                </div>
+                <div class="tarjeta-juego">
+                    <img src="images/card-juegos-carrusel/super-drift.jpg" alt="Super Drift">
+                    <p class="titulo-tarjeta-juego">Super Drift</p>
+                    <p class="precio-juego-tarjeta"></p>
+                    <button class="btn-jugar" id="btn-jugar-VirtualVoley">Jugar</button>               
+                </div>   
+                <div class="tarjeta-juego">
+                    <img src="images/card-juegos-carrusel/top-real-rally.jpg" alt="Top Real Rally">
+                    <p class="titulo-tarjeta-juego">Top Real Rally</p>
+                    <p class="precio-juego-tarjeta"></p>
+                    <button class="btn-jugar" id="btn-jugar-VirtualVoley">Jugar</button>               
+                </div> 
+            </div>
+            <ul class="puntos-carrera">
+                <li class="punto-carrera activo"></li>
+                <li class="punto-carrera"></li>
+                <li class="punto-carrera"></li>
+            </ul>
+        </div>
+    </section>
+    <footer>
+        <div class="titulos">
+             <p>Juegos por Categorías</p>
+             <p>Seguinos en la redes</p>
+        </div>
+        <div class="primerFooter">
+            <div class="conteiner-izquierda-primer-footer">
+                <img src="images/nav/logo-game.jpg" alt="logo">
+                <ul>
+                    <li>Perfil</li>
+                    <li>Recientes</li>
+                    <li>Logros</li>
+                    <li>Acción</li>
+                </ul>
+                <ul>
+                    <li>Aventura</li>
+                    <li>Carrera</li>
+                    <li>Desportes</li>
+                    <li>Futbol</li>
+                </ul>
+            </div>
+            <div class="conteiner-derecha-primer-footer">
+                
+                <div class="iconos-redes">
+                    <i class="fa-brands fa-facebook-square"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-tiktok"></i> 
+                </div>
+            </div>
+        </div>
+        <div class="segundoFooter">
+            <a href="home.html">GameRoom</a>
+            <a href="">Privacidad</a>
+            <a href="">Ayuda</a>
+            <a href="">FAQ`S</a>
+            <a href="">Terminos de uso</a>
+        </div>
+    </footer>
+    <script src="js/home.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/loader.js"></script>
+</body>
+</html>
