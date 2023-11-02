@@ -7,19 +7,21 @@ class Token{
         this.player = player;
         this.status = '';
         this.highlighted = false;
-        this.image = new Image();
-        this.getTokekImage(param)
+        this.image = new Image(50, 50);
+        this.getTokekImage(param);
     }
+
 
     //genera la respectiva ficha segun el jugador que corresponda.
     getTokekImage(param) {
+        //console.log(this.context);
         if(param === 'p1')
-            this.image.src = '../tp3/images/4enLinea/img1.jpg'; //ficha jugador 1.   
+            this.image.src = '../tp3/images/4enLinea/logoBatman.png'; //ficha jugador 1. 
         else if (param === 'p2')
-            this.image.src = '../tp3/images/4enLinea/img2.jpg'; //ficha jugador 2.
+            this.image.src = '../tp3/images/4enLinea/logoSuperman.png' //ficha jugador 2.
         else if (param === 'empty')
-            this.image.src = '../tp3/images/4enLinea/img3.jpg'; //espacio donde va la ficha a insertar en el tablero.
-    }
+            this.image.src = '../tp3/images/4enLinea/img3.jpg' //espacio donde va la ficha a insertar en el tablero.
+        }
     //retorna el jugador actual.
     getPlayer(){
         if (this.player === 0)
@@ -27,6 +29,7 @@ class Token{
         else 
             return this.player.getPlayerNumber();
     }
+    
     //retorna el nombre del jugador actual.
     getName() {
         return this.player.getName();
@@ -66,7 +69,7 @@ class Token{
         //Dibuja la ficha
         this.context.beginPath();
         this.context.arc(this.x, this.y, this.radio, 0, Math.PI*2);
-        this.context.fillStyle = '#ff9a01';
+        this.context.fillStyle = '#ff9a00';
         this.context.fill();
         if (this.highlighted === true) {
             this.context.strokeStyle = this.highlightedStyle;
@@ -74,9 +77,10 @@ class Token{
             this.context.stroke();
         }
         //Dibuja la ficha en la posicion indicada
-        this.context.drawImage(this.image, this.x - this.radio - 6, this.y - this.radio - 6);
-        this.context.closePath();
         this.image.onload = () => {
+            const img = document.getElementById("scream");
+            this.context.drawImage(img, this.x - this.radio, this.y - this.radio);
+            this.context.closePath();
         };
     }
 }

@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     //inicia un nuevo juego
     const playGame = ()  => {
-        game = new Game(canvas);
         game.prepareGame();
         winnerInfo.classList.add('hide');
         drawInfo.classList.add('hide');

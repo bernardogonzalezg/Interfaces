@@ -1141,4 +1141,13 @@ color:#E0D5EA;
     .segundoFooter a{
         margin: 1%;
     }
+
+    /* ejecucion juego */
+
+    .image-j1{
+        /*display: none;*/
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+    }
 }
