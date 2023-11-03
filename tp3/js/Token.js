@@ -11,7 +11,6 @@ class Token{
         this.getTokekImage(param);
     }
 
-
     //genera la respectiva ficha segun el jugador que corresponda.
     getTokekImage(param) {
         //console.log(this.context);
