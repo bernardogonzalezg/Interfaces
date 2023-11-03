@@ -508,6 +508,7 @@ li a::after {
     display: flex;
     justify-content: center;
     align-items: center; 
+    border: solid 1px #490483; 
 }
 
 .conteiner-juego-img img {
@@ -1161,5 +1162,13 @@ color:#E0D5EA;
         display: flex;
         justify-content: center;
         text-align: center;
+    }
+
+    .piece-settings button{
+        background: url('../images/4enLinea/logoBatman.png') center no-repeat; 
+        background-size: cover; 
+        border-radius: 50%; 
+        height: 4em; 
+        width: 4em;
     }
 }

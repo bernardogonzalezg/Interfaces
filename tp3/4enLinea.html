@@ -41,7 +41,6 @@
             <li class="flecha"></li>
             <li class="bvs">Batman VS Superman</li>
         </ol>
-
     </nav>        
     <section>
         <div class="conteiner-juego-ppal">
@@ -50,8 +49,58 @@
                 <h1>“LA BATTALLA FINAL”</h1>    
             </div> 
             <div id="conteiner-ejecutar" class="conteiner-juego-img">
+                 <!-- Settings View -->
+                <div id="game-settings"> 
+                    <form action="" id="game-settings-form">
+                        <h2>Cuatro casas en línea</h2>
+                        <section class="board-settings">
+                            <h3>Escoge el modo:</h3>
+                            <div>
+                                <input type="radio" name="board-lines" value="Principiante" checked>
+                                <label for="radio">4 en linea <span>Principiante</span></label>
+                            </div>
+                            <div>
+                                <input type="radio" name="board-lines" value="Amigable">
+                                <label for="radio">5 en linea <span>Amigable</span></label>
+                            </div>
+                            <div>
+                                <input type="radio" name="board-lines" value="Riguroso">
+                                <label for="radio">6 en linea <span>Riguroso</span></label>
+                            </div>
+                            <div>
+                                <input type="radio" name="board-lines" value="Ambicioso">
+                                <label for="radio">7 en linea <span>Ambicioso</span></label>
+                            </div>
+                        </section>
+                        <section class="piece-settings">
+                            <h3>Escoge tu superheroe: </h3>
+                            <div>
+                                <h4>Jugador 1</h4>
+                                <div id="player-1-piece-btns">
+                                    <button value="batman"></button>
+                                    <button value="batman"></button>
+                                    <button value="batman"></button>
+                                    <button value="batman"></button>
+                                </div>
+                            </div>
+                            <div>
+                                <h4>Jugador 2</h4>
+                                <div id="player-2-piece-btns">
+                                    <button value="batman"></button>
+                                    <button value="batman"></button>
+                                    <button value="batman"></button>
+                                    <button value="batman"></button>
+                                </div>
+                            </div>
+                        </section>
+                    </form>
+                    <div class="settings-confirm">
+                        <button type="button" id="play-settings-btn" class="playSettingsBtn">Jugar</button>                    
+                    </div>
+                </div> 
                 <div id="juego-ejecutado" class="juego-ejecutado">
-                    <img id="scream" class="image-j1" src="../tp3/images/4enLinea/logoBatman.png" alt="The Scream">
+                    <!-- Game View -->
+                    <div id="timer-box" class="timer"></div>
                     <div class="header-juego">
                         <div id="J1" class="jugador1-fondo">
                             <h1 class="jugador-titulo" id="nameP1">Jugador 1</h1>
@@ -65,7 +114,6 @@
                             <div class="conteiner-btn-iniciar">
                                 <div class="header-page">
                                     <button id="start-game" s>Comenzar / Reiniciar</button>
-                                    <h1 id="temporizador">60</h1>
                                 </div>
                             </div>
                         </div>
@@ -77,12 +125,18 @@
                         <div id="winner-info" class="winner-message">
                         </div>
                         <div id="draw-info" class="winner-message">
-                            <p>Empatados!</p>
+                            <p></p>
                         </div>
+                    </div>
+                    <div id="restart-box">
+                        <button type="button" id="restart-btn"><span class="icon-reset">reset</span></button>
+                    </div>
+                    <div id="close-box">
+                        <button type="button" id="close-btn"><span class="incon-close">X</span></button>
                     </div>
                     <div class="conteiner-tablero">
                         <div class="tablero">
-                            <canvas id="tablero" width="1000" height="220"></canvas>
+                            <canvas id="tablero" width="1000" height="380"></canvas>
                         </div>
                     </div>
                 </div>
@@ -249,5 +303,6 @@
     <script src="js/Board.js"></script>
     <script src="js/Game.js"></script>
     <script src="js/4enLinea.js"></script>
+    <script src="js/Timer.js"></script>
 </body>
 </html>
