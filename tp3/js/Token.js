@@ -14,12 +14,13 @@ class Token{
     //genera la respectiva ficha segun el jugador que corresponda.
     getTokekImage(param) {
         //console.log(this.context);
+        console.log(param);
         if(param === 'p1')
-            this.image.src = '../tp3/images/4enLinea/logoBatman.png'; //ficha jugador 1. 
+            this.image.src = 'images/4enLinea/logoBatman.png'; //ficha jugador 1. 
         else if (param === 'p2')
-            this.image.src = '../tp3/images/4enLinea/logoSuperman.png' //ficha jugador 2.
+            this.image.src = 'tp3/images/4enLinea/logoSuperman.png' //ficha jugador 2.
         else if (param === 'empty')
-            this.image.src = '../tp3/images/4enLinea/img3.jpg' //espacio donde va la ficha a insertar en el tablero.
+            this.image.src = 'tp3/images/4enLinea/img3.jpg' //espacio donde va la ficha a insertar en el tablero.
         }
     //retorna el jugador actual.
     getPlayer(){

@@ -1152,10 +1152,22 @@ color:#E0D5EA;
         border-radius: 100%;
     }
 
+    .conteiner-juego-img {
+        border: 3px solid #120525;
+        border-radius: 3px;
+    }
+
     .juego-ejecutado{
         position: relative;
         width: 100%;
         height: 85%;
+    }
+
+    .timer{
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 10px;
     }
 
     .header-juego{
@@ -1165,10 +1177,21 @@ color:#E0D5EA;
     }
 
     .piece-settings button{
-        background: url('../images/4enLinea/logoBatman.png') center no-repeat; 
-        background-size: cover; 
         border-radius: 50%; 
         height: 4em; 
         width: 4em;
     }
+
+    button[value="batman"]{
+        background: url('../images/4enLinea/logoBatman.png') center no-repeat;
+        background-size: cover; 
+    }
+
+    button[value="superman"]{
+        background: url('../images/4enLinea/logoSuperman.png') center no-repeat;
+        background-size: cover; 
+    }
+
+
+
 }
