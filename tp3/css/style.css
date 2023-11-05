@@ -1188,11 +1188,11 @@ color:#E0D5EA;
         text-align: center;
     }
 
-HEAD
     .btn-batman{
         background: url('../images/4enLinea/logoBatman.png') center no-repeat; 
         background-size: cover; 
     }
+    
     .piece-settings button{
         border-radius: 50%; 
         height: 4em; 
