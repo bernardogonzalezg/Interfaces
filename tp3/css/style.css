@@ -1164,8 +1164,16 @@ color:#E0D5EA;
         text-align: center;
     }
 
-    .piece-settings button{
+    .btn-batman{
         background: url('../images/4enLinea/logoBatman.png') center no-repeat; 
+        background-size: cover; 
+        border-radius: 50%; 
+        height: 4em; 
+        width: 4em;
+    }
+
+    .btn-superman{
+        background: url('../images/4enLinea/logoSuperman.png') center no-repeat; 
         background-size: cover; 
         border-radius: 50%; 
         height: 4em; 

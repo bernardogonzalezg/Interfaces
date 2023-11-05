@@ -1,233 +1,396 @@
 class Board{
 
-    constructor(context){
-        this.context = context;
-        this.slot = [];
-        this.slotX = [];
-        this.slotY = [];
-        this.topY = 93;
-        this.initialSlotWinner = {'x':-1, 'y':-1};
-        this.finalSlotWinner = {'x':-1, 'y':-1};
-        this.winnerPosition = '';
-        this.initSlot();
+    margin = 5;
+    ygap = 2;
+    xgap = 2;
+    spotSize;
+
+    constructor(mode, player1, player2) {
+        this.mode = mode;
+        this.player1 = player1;
+        this.player2 = player2;
+        this.context = CANVAS.getContext("2d");
+        this.canvash = CANVAS.height;
+        this.canvasw = CANVAS.width;
+
+        this.qplaces = mode.columns*mode.rows;
+        this.spotSize = this.canvash/ (mode.rows +1) - this.ygap;
+
+        let xBoardStart = (this.canvasw/2) - (this.mode.columns/2)*(this.spotSize+this.xgap);
+        let arrowW = this.spotSize/4;
+        let arrowH = this.spotSize/2;
+        let arrowsRowStart = xBoardStart + this.spotSize/2;
+        this.arrows = this.createArrows(arrowsRowStart, arrowW);
+        this.spots = this.createSpots(xBoardStart, arrowH+this.margin); //this.spots = [columna[spots], columna[spots]...]
+        this.pieces = {
+            player1 : {
+                "name": player1,
+                "pieces": this.createPieces(player1, this.canvasw/8),
+            }, 
+            player2 : {
+                "name": player2,
+                "pieces": this.createPieces(player2, this.canvasw-this.canvasw/8)
+            }
+        }
+        
+        this.draw();
     }
-    //inicializa las ranuras de entrada para las fichas.
-    initSlot() {
-        let diferenciaX = 95;
-        let diferenciaY = 65;
-        let fxInit = 320;
-        let fy = 130;
-        for (let y = 0; y < 7; y++) {
-            let fx = fxInit;
-            this.slot[fy+'-row'] = [];
-            for (let x = 0; x < 6; x++) {
-                let token = new Token (fx, fy, 'slot', 0);
-                token.setContext(this.context);  
-                this.slot[fy+'-row'][fx+'-col'] = token;
-                this.slotX.push(fx);
-                fx += diferenciaX;
-            } 
-            this.slotY.push(fy);
-            fy += diferenciaY;           
+
+    getContext() {return this.context;}
+
+    getCanvasW() {return this.canvasw;}
+
+    getCanvasH() {return this.canvash;}
+
+    getSpotSize() {return this.spotSize;}
+
+    draw() {
+        this.context.clearRect(0, 0, CANVAS.width, CANVAS.height);
+        for(const arrow of this.arrows) arrow.draw();
+        for(const row of this.spots) { 
+            for(const spot of row) spot.draw();
+        }
+        for(const piece of this.pieces.player1.pieces) piece.draw();
+        for(const piece of this.pieces.player2.pieces) piece.draw(); 
+    }
+
+    //start: Indica en qué lugar del canvas empieza 
+    createSpots(xstart, ystart) {
+        let spots = [];
+        let posx = xstart;
+        for (let col = 0; col < this.mode.columns; col++) {
+            let column = [];
+            let posy = ystart;
+            for (let row = 0; row < this.mode.rows; row++) {
+                let spot = new Spot(posx, posy, this.context, this.spotSize, this.spotSize);
+                column.push(spot);
+                posy += this.spotSize + this.ygap;
+            }
+            spots.push(column);
+            posx += this.spotSize + this.xgap;
+        }
+        return spots;
+    }
+
+    createArrows(start, width) {
+        let arrowsRow = [];
+         //drawArrow(ctx, 100, 10, 100, 50, 10, 'red');
+        for (let col = 0; col < this.mode.columns; col++) {
+            //  arrow = new Arrow(fromx,  fromy,        ctx,      tox,  toy, arrowWidth, color)
+            let arrow = new Arrow(start, this.ygap, this.context, start, this.spotSize/2, width, "grey");
+            arrowsRow.push(arrow);
+            start += (this.spotSize + this.ygap);
+        }
+        return arrowsRow;
+    }
+
+    createPieces(player, startx) {
+        let pieces = [];
+        let radious = this.spotSize/2;
+        let x = startx;
+        let y = this.canvash - this.spotSize;
+        for (let i = 0; i < this.mode.pieces; i++) {
+            let piece = new Piece(x, y, this.context, radious, player);
+            y -= this.margin;
+            pieces.push(piece);
+        }
+        return pieces;
+    }  
+
+    findSelectedElement(x, y) { 
+        for(const el of this.pieces.player1.pieces) {
+            if(el.isPointInside(x, y)) return el;
+        }
+        for(const el of this.pieces.player2.pieces) {
+            if(el.isPointInside(x, y)) return el;
         }
     }
-    //crea el tablero base donde se colocan las fichas y el tablero del juego.
-    drawBoard() {
-        this.context.fillStyle = '#FFD1AA';//color del fondo.
-        this.context.fillRect(0,0,1100,550);            
-        this.context.fillStyle="#000000"; //color del tablero.
-        this.context.fillRect(260,95,600,460);
-        for (let row = 0; row < this.slotX.length; row++) {
-            for (let col = 0; col < this.slotY.length; col++) {
-                let token = this.slot[this.slotY[col]+'-row'][this.slotX[row]+'-col'];
-                token.draw();
+
+    highlightColumn(index, hgl) {
+        for(const arrow of this.arrows) {
+            arrow.setHighlight(false);
+        }
+        if(hgl) this.arrows[index].setHighlight(true);
+    }
+
+    findSelectedColumn(x, y) {
+        for(const column of this.spots) {
+            for (const spot of column) {
+                if (spot.isPointInside(x, y)) {
+                    return this.spots.indexOf(column);  
+                }
+            }
+        }
+    }
+
+    isFull(columnIndex) {
+        let column = this.spots[columnIndex];
+        for(const spot of column) {
+            if(spot.isFree()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    settlePiece(interval, spot, piece, columnIndex) {
+        clearInterval(interval);
+        interval = null;
+        spot.setIsFree(false);
+        spot.setPiece(piece);
+        piece.setHighlight(false);
+        this.highlightColumn(columnIndex, false);
+        this.draw();
+    }
+
+    played_pieces = 0;
+
+    savePlay(piece, columnIndex) {
+        if(!piece.getIsPlayed()) {
+            piece.setIsPlayed(true);
+            let column = this.spots[columnIndex];
+            let row = 0;
+            if ( !column[row].isFree() ) {    
+                return false;        
+            }
+            let interval = setInterval(() => {
+                    let spot = column[row];
+        
+                    if(spot.isFree()) {
+                        piece.setPosition(spot.getX()+this.spotSize/2, spot.getY()+this.spotSize/2);
+                        this.draw();
+                        if(row < column.length - 1) {
+                            spot = column[row++];
+                        } 
+                        else {
+                            if ( row == column.length - 1 ) { // Llego al ultimo spot (fila)
+                                spot = column[row];
+                                this.settlePiece(interval, spot, piece, columnIndex);
+                                this.played_pieces++;
+                                return true;
+                            }
+                        } 
+                    } else {
+                        if ( row > 0 ) {
+                            spot = column[row-1];
+                            piece.setPosition(spot.getX()+this.spotSize/2, spot.getY()+this.spotSize/2);
+                            this.settlePiece(interval, spot, piece, columnIndex);
+                            this.played_pieces++;
+                            return true;
+                        }
+                    }               
+            }, 100);
+        }
+    }
+        
+
+    /*--------------------- Checks -----------------*/
+    winner = null;
+
+    showWinnerPlay(line) {
+        for(const piece of line) {
+            piece.setHighlightStyle("green");
+            piece.setHighlight(true);
+        }
+        this.draw();
+    }
+
+    getSpotPosition(piece, column) {
+        let currentSpot = null;
+        for ( const spot of this.spots[column]) {
+            if ( spot.isPointInside(piece.getX(), piece.getY())) {
+                currentSpot = spot;
+                break;
+            }
+        }
+        return currentSpot;
+    }
+
+    checkDiagonalUpRight(player, spot, column) {
+        const line = [];
+        let col_index = column + 1;
+        let row_index = this.spots[column].indexOf(spot) - 1;
+        while ( row_index >= 0 && col_index < this.mode.columns ) {
+            let next_spot = this.spots[col_index][row_index];
+            const currentPiece = next_spot.getPiece();
+            if ( currentPiece != null && currentPiece.getPlayer() === player ) {
+                line.push(currentPiece);
+                row_index--; 
+                col_index++;
+            }
+            else {
+                break;
+            }
+        }
+        return line;
+    }
+
+    checkDiagonalDownLeft(player, spot, column) {
+        const line = [];
+        let col_index = column - 1;
+        let row_index = this.spots[column].indexOf(spot) + 1;
+        while ( row_index < this.mode.rows && col_index >= 0 ) {
+            let next_spot = this.spots[col_index][row_index];
+            const currentPiece = next_spot.getPiece();
+            if ( currentPiece != null && currentPiece.getPlayer() === player ) {
+                line.push(currentPiece);
+                row_index++; 
+                col_index--;
+            }
+            else {
+                break;
+            }
+        }
+        return line;
+    }
+
+    checkDiagonalUpLeft(player, spot, column) {
+        const line = [];
+        let col_index = column - 1;
+        let row_index = this.spots[column].indexOf(spot) - 1;
+        while ( row_index >= 0 && col_index >= 0 ) {
+            let next_spot = this.spots[col_index][row_index];
+            const currentPiece = next_spot.getPiece();
+            if ( currentPiece != null && currentPiece.getPlayer() === player ) {
+                line.push(currentPiece);
+                row_index--; 
+                col_index--;
+            }
+            else {
+                break;
+            }
+        }
+        return line;
+    }
+
+    checkDiagonalDownRight(player, spot, column){
+        const line = [];
+        let col_index = column + 1;
+        let row_index = this.spots[column].indexOf(spot) + 1;
+        while ( row_index < this.mode.rows && col_index < this.mode.columns) {
+            let next_spot = this.spots[col_index][row_index];
+            const currentPiece = next_spot.getPiece();
+            if ( currentPiece != null && currentPiece.getPlayer() === player ) {
+                line.push(currentPiece);
+                row_index++; 
+                col_index++;
+            }
+            else {
+                break;
+            }
+        }
+        return line;
+    }
+
+    checkSecondDiagonal(piece, player, spot, column) {
+        console.log("check second diagonal");
+        let line = this.checkDiagonalDownRight(player, spot, column);
+        if(line.length != this.mode.line-1) {
+            let scnd_line = this.checkDiagonalUpLeft(player, spot, column);
+            if(line.length + scnd_line.length != this.mode.line-1) {
+                return null;
+            } 
+            for(const line_piece of scnd_line) line.push(line_piece);
+        }
+        line.push(piece);
+        this.winner = player;
+        return line;
+    }
+
+    checkFirstDiagonal(piece, player, spot, column) {
+        let line = this.checkDiagonalDownLeft(player, spot, column);
+        if(line.length != this.mode.line-1) {
+            let scnd_line = this.checkDiagonalUpRight(player, spot, column);
+            if(line.length + scnd_line.length != this.mode.line-1) {
+                return null;
+            } 
+            for(const line_piece of scnd_line) line.push(line_piece);
+        }
+        line.push(piece);
+        this.winner = player;
+        return line;
+    }
+
+    checkDiagonals(piece, column) {
+        let spot = this.getSpotPosition(piece, column);
+        let line = [];
+        let player = spot.getPiece().getPlayer();
+        return (this.checkFirstDiagonal(piece, player, spot, column) || this.checkSecondDiagonal(piece, player, spot, column));
+    }
+
+    checkRows() { 
+        for (let row = this.mode.rows -1; row >= 0; row--) {
+            let line = [];
+            let player;
+            for (const column of this.spots) {
+                let spot = column[row];
+                
+                if(!spot.isFree()) {
+                    let piece = spot.getPiece();
+                    let piece_player = piece.getPlayer();
+                    if(player == null) player = piece_player;
+                    if(player == piece_player) {
+                        line.push(piece);
+                        if(line.length == this.mode.line) { //Hizo línea...
+                            this.winner = player;
+                            return line;
+                        } 
+                    } else {
+                        player = piece_player;
+                        line = [];
+                        line.push(piece);
+                    }
+                } else {
+                    player = null;
+                    line = [];
+                }
             }   
         }
+        return null;
     }
 
-    couldInsertToken(x, y, currentToken) {
-        if (y < this.topY && x > 250 && x < 850)
-            return this.searchSlot(x, currentToken);
-        return false;
-    } 
-    //busca una ranura habilitada para insertar la ficha.
-    searchSlot(x, currentToken) {
-        for(let i = 0; i < 7; i++) {
-            if (this.slotX[i] > x - 25 && this.slotX[i] < x + 25){
-                return this.insertToken(this.slotX[i], currentToken);
-            }                    
-        };
-        return false;
+    checkColumns() {
+        for(const column of this.spots) {
+            let line = [];
+            let player;
+            for (let i = column.length-1; i >= 0 ; i--) {
+                const spot = column[i];
+                if(!spot.isFree()) {
+                    let piece = spot.getPiece();
+                    let piece_player = piece.getPlayer();
+                    if(player == null) player = piece_player;
+                    if(player == piece_player) {
+                        line.push(piece);
+                        if(line.length == this.mode.line) {
+                            this.winner = player;
+                            return line;
+                        } 
+                    } else {
+                        player = piece_player;
+                        line = [];
+                        line.push(piece);
+                    }
+                } 
+            }
+        }
+        return null;
     }
-    //inserta la ficha en una posicion.
-    insertToken(x, currentToken) {
-        let posTmpY = -1;
-        let couldInsert = false;        
 
-        for (let y = 0; y < this.slotY.length; y++) {
-            let tmpy = this.slotY[y];
-            if (this.slot[tmpy+'-row'][x+'-col'].getPlayer() === 0){
-                posTmpY = tmpy;
-                couldInsert = true;
+    //A partir de l cuarta ficha, controlar...
+    checkWinner(piece, column) {
+        //Si se jugaron las piezas necesarias para hacer línea, chequea. Si no, retorna null...
+        if(this.played_pieces >= (this.mode.line*2) - 1) {
+            let line = [];
+            line = this.checkColumns();
+            if(line == null) line = this.checkRows();
+            if(line == null) line = this.checkDiagonals(piece, column);
+            if(line != null && this.winner != null) {
+                console.log("entra a mostrar ganador");
+                this.showWinnerPlay(line);
+                return this.winner;
             }
         }
-        if (posTmpY !== -1) {
-            currentToken.setX(x);
-            currentToken.setY(posTmpY);
-            currentToken.setStatus('inactive');
-            this.slot[posTmpY+'-row'][x+'-col'] = currentToken;
-        }        
-        return couldInsert;  
-    }
-    //chequea verticalmente si hay algun ganador.
-    checkVertical() {
-        let count = 0;
-        let player = -1;
-        let isWinner = false;
-        for (let col = 0; col < 6; col++) {
-            count = 0;
-            for (let row = 0; row < 7; row++) {
-                let token = this.slot[this.slotY[row]+'-row'][this.slotX[col]+'-col'];
-                let valor = token.getPlayer();
-                if (valor === 0) {
-                    count = 0;
-                    player = -1;
-                }
-                else if (valor !== player){
-                    player = valor;
-                    count = 1;
-                    this.initialSlotWinner.x = col;
-                    this.initialSlotWinner.y = row;
-                }
-                else
-                    count++;
-                //si hay un ganador retorna el resultado.
-                if (count === 4){                    
-                    isWinner = true; 
-                    this.winnerPosition = 'vertical';
-                    this.finalSlotWinner.x = col;
-                    this.finalSlotWinner.y = row;                  
-                    return isWinner;
-                }                
-            }
-        }
-        this.finalSlotWinner.x = -1;
-        this.finalSlotWinner.y = -1;
-        return isWinner;
-    }
-    //chequea horizontalmente si hay algun ganador.
-    checkHorizontal() {
-        let count = 0;
-        let player = -1;
-        let isWinner = false;
-        for (let row = 0; row < 7; row++) {
-            count = 0;
-            for (let col = 0; col < 6; col++) {
-                let token = this.slot[this.slotY[row]+'-row'][this.slotX[col]+'-col'];
-                let valor = token.getPlayer();
-                if (valor === 0) {
-                    count = 0;
-                    player = -1;
-                }
-                else if (valor !== player){
-                    player = valor;
-                    count = 1;
-                    this.initialSlotWinner.x = col;
-                    this.initialSlotWinner.y = row;
-                }
-                else
-                    count++;
-                //si hay un ganador retorna el resultado.
-                if (count === 4){
-                    isWinner = true;
-                    this.winnerPosition = 'horizontal';
-                    this.finalSlotWinner.x = col;
-                    this.finalSlotWinner.y = row;
-                    return isWinner;
-                }
-            }
-        }
-        this.finalSlotWinner.x = -1;
-        this.finalSlotWinner.y = -1;
-        return isWinner;
-    }
-    //chequea diagonalmente si hay algun ganador.
-    checkDiagonal(){
-        let isWinner = false;
-        if (this.checkRightDiagonal() || this.checkLeftDiagonal())
-            isWinner = true;
-        return isWinner;
-    }
-    //chequea la diagonal derecha.
-    checkRightDiagonal() {
-        let isWinner = false;
-        for (let row = 3; row < 7; row++) {
-            for (let col = 0; col < 3; col++) {
-                let valorTmpY = row;
-                let valorTmpX = col;
-                let valor = this.slot[this.slotY[valorTmpY]+'-row'][this.slotX[valorTmpX]+'-col'].getPlayer();
-                let fourInLine = false;
-                if (valor !== 0) {
-                    for (let i = 0; i < 3; i++) {
-                        valorTmpY--;
-                        valorTmpX++;
-                        let valorTmp = this.slot[this.slotY[valorTmpY]+'-row'][this.slotX[valorTmpX]+'-col'].getPlayer();
-                        if (valor !== valorTmp)
-                            break;
-                        if (i === 2)
-                            fourInLine = true;
-                    }
-                }
-                //si hay un ganador retorna el resultado.
-                if (fourInLine){
-                    isWinner = true;
-                    this.winnerPosition = 'rightDiagonal';
-                    this.initialSlotWinner.x = col;
-                    this.initialSlotWinner.y = row;
-                    this.finalSlotWinner.x = valorTmpX;
-                    this.finalSlotWinner.y = valorTmpY;
-                    return isWinner;
-                }
-            }
-        }
-        this.finalSlotWinner.x = -1;
-        this.finalSlotWinner.y = -1;
-        return isWinner;
-    }
-    //chequea la diagonal izquierda.
-    checkLeftDiagonal() {
-        let isWinner = false;
-        for (let row = 6; row > 2; row--) {
-            for (let col = 5; col > 2; col--) {
-                let valorTmpY = row;
-                let valorTmpX = col;
-                let valor = this.slot[this.slotY[valorTmpY]+'-row'][this.slotX[valorTmpX]+'-col'].getPlayer();
-                let fourInLine = false;
-                if (valor !== 0) {
-                    for (let i = 0; i < 3; i++) {
-                        valorTmpY--;
-                        valorTmpX--;
-                        let valorTmp = this.slot[this.slotY[valorTmpY]+'-row'][this.slotX[valorTmpX]+'-col'].getPlayer();
-                        if (valor !== valorTmp)
-                            break;
-                        if (i === 2)
-                            fourInLine = true;
-                    }
-                }
-                //si hay un ganador retorna el resultado.
-                if (fourInLine){
-                    isWinner = true;
-                    this.winnerPosition = 'leftDiagonal';
-                    this.initialSlotWinner.x = col;
-                    this.initialSlotWinner.y = row;
-                    this.finalSlotWinner.x = valorTmpX;
-                    this.finalSlotWinner.y = valorTmpY;                    
-                    return isWinner;
-                }
-            }
-        }
-        this.finalSlotWinner.x = -1;
-        this.finalSlotWinner.y = -1;
-        return isWinner;
-    }
+        return this.winner;
+    }    
+        
 }
