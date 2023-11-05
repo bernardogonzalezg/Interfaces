@@ -468,7 +468,12 @@ li a::after {
     height: 520px;    
     margin-left: auto;
     margin-right: auto;
-    
+}
+
+#conteiner-ejecutar {
+    background-image: url(../images/4enLinea/4EnLinea-1.jpg);
+    background-size: cover;
+
 }
 
 .img-container,
@@ -1145,11 +1150,23 @@ color:#E0D5EA;
 
     /* ejecucion juego */
 
+    #game-settings-form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .image-j1{
         display: none;
         width: 50px;
         height: 50px;
         border-radius: 100%;
+    }
+
+    .conteiner-juego-img {
+        border: 3px solid #120525;
+        border-radius: 3px;
     }
 
     .juego-ejecutado{
@@ -1158,15 +1175,25 @@ color:#E0D5EA;
         height: 85%;
     }
 
+    .timer{
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 10px;
+    }
+
     .header-juego{
         display: flex;
         justify-content: center;
         text-align: center;
     }
 
+HEAD
     .btn-batman{
         background: url('../images/4enLinea/logoBatman.png') center no-repeat; 
         background-size: cover; 
+    }
+    .piece-settings button{
         border-radius: 50%; 
         height: 4em; 
         width: 4em;

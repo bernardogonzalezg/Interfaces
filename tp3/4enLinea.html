@@ -42,6 +42,7 @@
             <li class="bvs">Batman VS Superman</li>
         </ol>
     </nav>        
+
     <section>
         <div class="conteiner-juego-ppal">
             <div class="conteiner-juego-titulo">
@@ -52,7 +53,7 @@
                  <!-- Settings View -->
                 <div id="game-settings"> 
                     <form action="" id="game-settings-form">
-                        <h2>Cuatro casas en línea</h2>
+                        <h2>Batman vs Superman</h2>
                         <section class="board-settings">
                             <h3>Escoge el modo:</h3>
                             <div>
@@ -61,15 +62,15 @@
                             </div>
                             <div>
                                 <input type="radio" name="board-lines" value="Amigable">
-                                <label for="radio">5 en linea <span>Amigable</span></label>
+                                <label for="radio">5 en linea <span>Intermedio</span></label>
                             </div>
                             <div>
                                 <input type="radio" name="board-lines" value="Riguroso">
-                                <label for="radio">6 en linea <span>Riguroso</span></label>
+                                <label for="radio">6 en linea <span>Avanzado</span></label>
                             </div>
                             <div>
                                 <input type="radio" name="board-lines" value="Ambicioso">
-                                <label for="radio">7 en linea <span>Ambicioso</span></label>
+                                <label for="radio">7 en linea <span>Supremo</span></label>
                             </div>
                         </section>
                         <section class="piece-settings">
@@ -78,39 +79,28 @@
                                 <h4>Jugador 1</h4>
                                 <div id="player-1-piece-btns">
                                     <button value="batman"></button>
-                                    <button value="batman"></button>
-                                    <button value="batman"></button>
-                                    <button value="batman"></button>
+
                                 </div>
                             </div>
                             <div>
                                 <h4>Jugador 2</h4>
                                 <div id="player-2-piece-btns">
-                                    <button value="batman"></button>
-                                    <button value="batman"></button>
-                                    <button value="batman"></button>
-                                    <button value="batman"></button>
+                                    <button value="superman"></button>
                                 </div>
                             </div>
                         </section>
                     </form>
                     <div class="settings-confirm">
-                        <button type="button" id="play-settings-btn" class="playSettingsBtn">Jugar</button>                    
+                        <button type="button" id="play-settings-btn" class="btn-jugar">Jugar</button>                    
                     </div>
                 </div> 
                 <div id="juego-ejecutado" class="juego-ejecutado">
-                    <!-- Game View -->
                     <div id="timer-box" class="timer"></div>
-                    <div class="header-juego">
-                        <div id="J1" class="jugador1-fondo">
-                            <h1 class="jugador-titulo" id="nameP1">Jugador 1</h1>
-                        </div>
-                        <div class="header-actions">
-                            <div class="conteiner-titulo">
-                                <div class="header-page">
-                                    <h1 class="titulo">4 En Linea</h1>
-                                </div>
+                        <div class="header-juego">
+                            <div id="J1" class="jugador1-fondo">
+                                <h1 class="jugador-titulo" id="nameP1">Jugador 1</h1>
                             </div>
+                            <div class="header-actions">
                             <div class="conteiner-btn-iniciar">
                                 <div class="header-page">
                                     <button id="start-game" s>Comenzar / Reiniciar</button>
@@ -140,10 +130,11 @@
                         </div>
                     </div>
                 </div>
+                
                 <div id="conteiner-btn-juegoEjecutar">
                     <button id="btn-ejecutar" class="btn-jugar-ppal">Jugar</button>
                     <img src="images/4enLinea/4EnLinea-1.jpg" alt="Imagen de fondo">
-                </div>     
+                </div>   
             </div>
         </div>
         <div class="compartir-redes"> 
