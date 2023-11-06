@@ -1,25 +1,25 @@
 "use strict";
 
 
-let friendly= {
+let basico= {
     line: 4,
     columns: 7,
     rows: 6,
     pieces: 21
 }
-let brave = {
+let intermedio = {
     line: 5,
     columns: 8,
     rows: 7,
     pieces: 32
 }
-let clever = {
+let avanzado = {
     line: 6,
     columns: 9,
     rows: 8,
     pieces: 45
 }
-let ambicious = {
+let mundial = {
     line: 7,
     columns: 10,
     rows: 9,
@@ -33,7 +33,7 @@ const GAME_BOX = document.querySelector("#game-box");
 
 
 /*------------------------- GAME SETTINGS ----------------------------*/
-let current_mode = friendly;  //Por defecto
+let current_mode = basico;  //Por defecto
 let player1;
 let player2;
 
@@ -69,7 +69,7 @@ function selectPiece(selectedBtn, btnsContainer, player) {
     else player2 = selectedBtn.value;
     //Si coinciden, muestra el error...
     if(player1 == player2) {
-        showErrorMsg("Selecciona una casa distinta a la de tu oponente!");
+        showErrorMsg("Selecciona un superheroe distinto.");
         //Des-selecciona los botones...
         for (const btn of btnsContainer.children) {
             btn.classList.remove("piece-settings-btn-active");
@@ -89,10 +89,13 @@ function setFormBtnsEvents() {
     let radioInputs = document.querySelectorAll("input");
         radioInputs.forEach((input) => {
         input.addEventListener("click", () => {
-           let name_current_mode = input.value;
-           setBoard(name_current_mode);
+            let name_current_mode = input.value;
+            input.classList.add("destacado");
+            setBoard(name_current_mode);
+            selectMode(radioInputs, name_current_mode);
         });
     });
+    
 
     let btnsContainer = document.querySelector("#player-1-piece-btns");
     for (const btn of btnsContainer.children) {
@@ -109,15 +112,22 @@ function setFormBtnsEvents() {
     }
 }
 
+function selectMode(inputs, valor){
+    inputs.forEach(i => {
+        if(i.value != valor)
+            i.classList.remove("destacado");
+    });
+};
+
 function setBoard(name_current_mode) {
-    if(name_current_mode === "friendly")
-        current_mode = friendly;
-    else if(name_current_mode === "brave")
-        current_mode = brave;
-    else if(name_current_mode === "clever")
-        current_mode = clever;
-    else if(name_current_mode === "ambicious")
-        current_mode = ambicious;
+    if(name_current_mode === "basico")
+        current_mode = basico;
+    else if(name_current_mode === "intermedio")
+        current_mode = intermedio;
+    else if(name_current_mode === "avanzado")
+        current_mode = avanzado;
+    else if(name_current_mode === "mundial")
+        current_mode = mundial;
 }
 
 
@@ -147,24 +157,18 @@ function irOpciones() {
 }
  //desactiva las opciones y activa el juego
 function renderizarJuego(){
-    conteinerJuego.classList.add("container-activo");
-    conteinerJuego.classList.remove("container-inactivo");
-    conteinerOpciones.classList.add("container-inactivo");
-    conteinerOpciones.classList.remove("container-activo");
-    play();
-}
-
-//desactiva el juego y activa la presentacion
-function salirJuego(){
-    conteinerJuego.classList.add("container-inactivo");
-    conteinerJuego.classList.remove("container-activo");
-    conteinerInicial.classList.add("container-activo");
-    conteinerInicial.classList.remove("container-inactivo");
+    if (checkSettings()){
+        play();
+        conteinerJuego.classList.add("container-activo");
+        conteinerJuego.classList.remove("container-inactivo");
+        conteinerOpciones.classList.add("container-inactivo");
+        conteinerOpciones.classList.remove("container-activo");
+    }
 }
 
 document.querySelector("#btn-ejecutar").addEventListener("click", irOpciones);
 document.querySelector("#play-settings-btn").addEventListener("click", renderizarJuego);
-document.querySelector("#close-btn").addEventListener("click", salirJuego);
+document.querySelector("#restart-btn").addEventListener("click", renderizarJuego);
 
 
 /**
@@ -172,7 +176,7 @@ document.querySelector("#close-btn").addEventListener("click", salirJuego);
  */
 function checkSettings() {
     if(player1 == null && player2 == null) {
-        showErrorMsg("Selecciona una casa");
+        showErrorMsg("Selecciona un superheroe");
         return false;
     } 
     if(player1 == null || player2 == null) {
@@ -224,9 +228,8 @@ function onMouseUp(e) {
     isDragging = false;
     if(selectedPiece != null && selectedColumn != null) {
         if(board.isFull(selectedColumn)) {
-            // showMsgInGameBox(, 3000);
             selectedPiece.setPosition(selectedPiece_initialPosition.x, selectedPiece_initialPosition.y);
-            showMsgInModalBox("Ni un mago como tú hará entrar otra ficha!", 3000);
+            showMsgInModalBox("No hay más espacio para poner una ficha en la columna", 3000);
         } else {
             board.savePlay(selectedPiece, selectedColumn);
             setTimeout(() => {
@@ -234,31 +237,20 @@ function onMouseUp(e) {
                 if(winner == null) {
                     setTurn(); 
                 } else {
-                    let msg = `<p>Tu magia ha triunfado, <span class="game-box">` + winner + `</span>!</p>`; 
+                    let msg = `<p>Felicitaciones <span class="game-box">` + winner + `</span> ganaste!</p>`; 
                     showMsgInModalBox(msg, 5000);
-                    setTimeout(() => {play(true)}, 5000);
+                    //setTimeout(() => {play(true)}, 5000);
                 }}, 1000);        
         }
         board.draw();
     }
-    //si la pieza está sobre una columna del tablero, ubicarla en el primer lugar libre...
-    //si no, dejarla donde está y permitir que vuelva a seleccionarse
-
-    
-    // if(board.saveCurrentPlay(selectedPiece)) {
-    //     let winner = board.checkPlay();
-    //     if(winner != null) MSG_BOX.innerHTML = "Ganó la casa " + winner + "!";
-    // } else {
-    //     MSG_BOX.innerHTML = "Error!";
-    // }
-    
 }
 
 /**
- * Cuando la ficha seleccionada es draggueada fuera del canvas, vuelve a mostrarla en la pila
+ * Cuando la ficha seleccionada es arrastrada fuera del canvas, vuelve a mostrarla en la pila
  */
 function onMouseOut(e) {
-    if(!isDragging) 
+    if(!isDragging) e
         return;
     e.preventDefault();
     e.stopPropagation();
@@ -343,7 +335,7 @@ function onMouseDown(e) {
  */
 function timeOver() {
     if(board.getWinner() == null) {
-        let msg = `<p>Tiempo acabado, magos!</p>`;
+        let msg = `<p>Tiempo acabado</p>`;
         showMsgInModalBox(msg, 3000);
         play(true);
     }
@@ -363,7 +355,7 @@ function setGameEvents(){
 
 function showTurn() {
     if(MSG_BOX.classList.contains("danger")) MSG_BOX.classList.remove("danger");
-    MSG_BOX.innerHTML = `<p>Juega <span class="game-box">` + current_player + `</span> House</p>`;
+    MSG_BOX.innerHTML = `<p>Juega <span class="game-box">` + current_player +`</span></p>`;
 }
 
 function showMsgInGameBox(msg, time) {
@@ -376,16 +368,17 @@ function showMsgInModalBox(msg, time) {
     GAME_MODAL.classList.add("active");
     GAME_MODAL.innerHTML = msg;
     setTimeout(() => {
-        GAME_MODAL.classList.remove("active");
+       GAME_MODAL.classList.add("container-inactivo");
     }, time);
 }
 
 
-function play(restart) {
-    if(restart || checkSettings()) {
+function play() {
+    if(checkSettings()) {
 
         //Show timer and board...
-        new Timer(document.querySelector(".timer"));
+        let timer = new Timer(document.querySelector(".timer"));
+        timer.start();
         board = new Board(current_mode, player1, player2);
 
         //Setea los eventos de mouse necesarios para el juego y comienza...

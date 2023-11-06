@@ -556,7 +556,7 @@ li a::after {
 }
 
 .compartir-redes {
-    margin-top: 8px;
+    margin-top: 45px;
     display: flex;
     align-items: center;
     width: 76%;
@@ -1169,17 +1169,64 @@ color:#E0D5EA;
         border-radius: 3px;
     }
 
+    .board-settings{
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        width: 50%;
+        flex-direction: column;
+    }
+
+    .settings-confirm{
+        display: flex;
+        justify-content: center;
+    }
+
+    .input-mode{
+        margin: 2%;
+        padding: 5%;
+        border-radius: 9px;
+        width: 75%;
+        background-color: #816ca0;
+        color: #0c0e27;
+        font-weight: 700;
+    }
+    
+    .destacado{
+        background-color:#490485;
+        color: #C0C6FA;
+    }
+
+    .board-settings input:hover{
+        background-color: #1b0e2e;
+        color: #C0C6FA;
+    }
+
     .juego-ejecutado{
         position: relative;
         width: 100%;
-        height: 85%;
+        height: 100%;
     }
 
-    .timer{
+    .game-controlers{
         position: absolute;
         top: 0;
         right: 0;
         padding: 10px;
+    }
+
+    .game-controlers button{
+        border-radius: 40px;
+        background-color: #490483;
+        color: #E0D5FA;
+    }
+
+    #restart-btn{
+        padding-left: 12%;
+    }
+
+    .icon-reset{
+        padding: 0px 10px;
     }
 
     .header-juego{
@@ -1192,6 +1239,10 @@ color:#E0D5EA;
         border-radius: 50%; 
         height: 4em; 
         width: 4em;
+    }
+
+    .piece-settings-btn-active {
+        border: 5px solid #490483;
     }
 
     .btn-batman{
@@ -1226,215 +1277,39 @@ color:#E0D5EA;
         width: 4em;
     }
 
-    /*-----------------    Tercera entrega --------------------------------*/
-/*
-    div.game-container, div#desktop-first-view {
-        min-width: 15em;
-        height: 75vh;
-        width: 80vw;
-        min-height: 300px;
+    .imagen-fondo-juego{
+        background-image: url("../images/4enLinea/4EnLinea-1.jpg");
+        opacity: 0.4;
+        background-size: cover;
+        z-index: -1;
     }
 
-    div.game-container {
-        position: relative;
-        background: rgba(217, 217, 217, 0.5);
-        border: 3px solid #120525;
-        border-radius: 3px;
+    .canvas {
+        margin-left: 1%;
+        margin-bottom: 0px;
+    }
 
+    .game-modal, .game-msg-div{ 
         display: flex;
-        flex-direction: column;
         justify-content: center;
-        align-items: space-around;
     }
 
-    /*--------------------------------------------------------
+    .game-modal p, .game-msg-div p{       
+        color: #490483;
+        font-size: 200%;
+        padding: 0px 5px;
+        margin-top: 2px;
 
-    div#desktop-first-view {
-        background-image: url("TP3/images/4enLinea/img1.jpg");
     }
-*/
-    .game-ongoing-background {
-        background-image: url("../images/4enLinea/img2.jpg")center no-repeat;
-    }/*
-
-    div#game-settings {
-        margin: 1.5em 3em;
-        letter-spacing: .1em;
-        color: #120525;
-        display: flex;
-        justify-content: space-around;
-    }
-
-    div#game-settings form {
-        width: 40%;
-    }
-
-    div#game-settings h2 {
-        padding-bottom: .5em;
-        font-size: 1.6em;
-        font-weight: bolder;
-    }
-
-    div#game-settings form section {
-        margin: 1em;
-        width: 25em;
-    }
-
-    div#game-settings form section.board-settings {
-        margin-top: 0;
-        flex-wrap: wrap;
-    }
-
-    div#game-settings form section.board-settings h3 {
-        font-weight: 0.8;
-    }
-
-    div#game-settings form section.board-settings span {
-        font-style: italic;
-    }
-
-    div#game-settings div.settings-confirm {
-        display: flex;
-        align-items: flex-end;
-        padding-bottom: 70px;
-    }
-
-    .piece-settings-btn-active {
-        border: 5px solid yellow;
-    }
-
-    /*----   Game controls  ----
-    button#help-btn, button#restart-btn, button#close-btn, button#done-btn, button#input-close-btn {
-        height: 2.5em;
-        width: 2.5em;
-        margin: 0.7em;
-    }
-
-    button#help-btn, button#restart-btn, button#close-btn, button#done-btn, button#input-close-btn {
-        border-radius: 50%;
-    }
-
-    button#done-btn, button#input-close-btn {
-        height: 1.7em;
-        width: 1.7em;
-        margin: 0.5em;
-    }
-
-    div#game-controls {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    div#game-controls-btns {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
-
-    /*---- Game canvas  -----
-    div#game-canvas {
-        width: 80vw;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;   
-    }
-
-    /*-------- Timer -----------
-
-    span.material-icons {
-        width: 24px;
-        height: 24px;
-    }
-
-    .time-input-box {
-        display: flex;
-        flex-flow: row nowrap;
-        align-items: center;
-        justify-content: space-around;
-        width: 60%;
-    }
-
-    .timer {
-        display: flex;
-        flex-flow: nowrap;
-        align-items: center;
-        padding: 10px 13px;
-    }
-
-    .timer__part {
-        font-size: 26px;
-    }
-
-    .timer__btn {
-        width: 2.5em;
-        height: 2.5em;
-        margin-left: 16px;
-        border-radius: 50%;
-        border: none;
-        color: white;
-        background: #8208e6;
-        cursor: pointer;
-    }
-
-    .timer__btn--start {
-        background: #00b84c;
-    }
-
-    .timer__btn--stop {
-        background: #ff0256;
-    }
-
-        /*--- game msg box ----
-
-    div#game-msg-div {
-        display: flex;
-        max-height: 2em;
-    }
-
-    div#game-modal {
-        display: none;
-        font-size: 1.2em;
-    }
-
-    div#game-msg-div, div#game-modal {
-        margin: 1em;
-        width: 60%;
-        min-width: 20em;
-        min-height: 2em;
-        flex-wrap: wrap;
-        align-content: center;
-        align-self: center;
-        justify-content: center;
-        border-radius: 30px;
-        letter-spacing: .1em;
-        background: rgba(80, 76, 76, 0.8);
-    }
-
-    div#game-modal.active {
-        display: flex;
-        background: rgba(80, 76, 76, 0.8);
-        padding: 1em;
-        position: absolute;
-        z-index: 1;
-        min-height: 3em;
-        color:#FFFFFF;
-        font-size: 1.2em;
-        font-weight: bolder;
-    }
-
-    span.game-box {
-        text-transform: capitalize;
-        /* font-style: italic; 
-    }
-
+  
     .danger {
-        color: red;
-        font-weight: 600;
+        color: rgb(156, 20, 20);
+        font-weight: 900;
+        font-size: 130%;
     }
 
-    div.board {
-        position: relative;
+    .hide{
+        display: none;
     }
-*/
   
 }

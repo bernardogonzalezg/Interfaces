@@ -53,24 +53,20 @@
                 <!-- Settings View -->
                <div id="game-settings"> 
                    <form action="" id="game-settings-form">
-                       <h2>Cuatro casas en línea</h2>
+                       <h2>Superheroes en línea</h2>
                        <section class="board-settings">
-                           <h3>Escoge el modo:</h3>
+                           <h3>Modo de juego:</h3>
                            <div>
-                               <input type="radio" name="board-lines" value="friendly" checked>
-                               <label for="radio">4 en linea <span>Principiante</span></label>
+                               <input type="button" name="board-lines" class="input-mode" value="Basico" checked>
                            </div>
                            <div>
-                               <input type="radio" name="board-lines" value="brave">
-                               <label for="radio">5 en linea <span>Amigable</span></label>
+                               <input type="button" name="board-lines" class="input-mode" value="Intermedio">
                            </div>
                            <div>
-                               <input type="radio" name="board-lines" value="clever">
-                               <label for="radio">6 en linea <span>Riguroso</span></label>
+                               <input type="button" name="board-lines" class="input-mode" value="Avanzado">
                            </div>
                            <div>
-                               <input type="radio" name="board-lines" value="ambicious">
-                               <label for="radio">7 en linea <span>Ambicioso</span></label>
+                               <input type="button" name="board-lines" class="input-mode" value="Mundial">
                            </div>
                        </section>
                        <section class="piece-settings">
@@ -96,55 +92,29 @@
                        </section>
                    </form>
                    <div class="settings-confirm">
-                       <button type="button" id="play-settings-btn" class="playSettingsBtn">Jugar</button>                    
+                       <button type="button" id="play-settings-btn" class="playSettingsBtn btn-jugar">Jugar</button>                    
                    </div>
+                   <img src="images/4enLinea/4EnLinea-1.jpg" class="imagen-fondo-juego" alt="Imagen de fondo">
                </div> 
                <div id="game-box" class="juego-ejecutado">
                    <!-- Game View -->
-                   <div id="timer-box" class="timer"></div>
-                   <div id="game-msg-div"></div>
-                   <div class="header-juego">
-                       <div id="J1" class="jugador1-fondo">
-                           <h1 class="jugador-titulo" id="nameP1">Jugador 1</h1>
-                       </div>
-                       <div class="header-actions">
-                           <div class="conteiner-titulo">
-                               <div class="header-page">
-                                   <h1 class="titulo">4 En Linea</h1>
-                               </div>
-                           </div>
-                           <div class="conteiner-btn-iniciar">
-                               <div class="header-page">
-                                   <button id="start-game" s>Comenzar / Reiniciar</button>
-                               </div>
-                           </div>
-                       </div>
-                       <div id="J2" class="jugador2-fondo">
-                           <h2 class="jugador-titulo" id="nameP1">Jugador 2</h2>
+                   <div class="game-controlers">
+                        <div id="timer-box" class="timer"></div>
+                        <div id="restart-box">
+                           <button id="restart-btn"><span class="icon-reset">Reinicar</span></button>
                        </div>
                    </div>
-                   <div class="info-row">
-                       <div id="winner-info" class="winner-message">
-                       </div>
-                       <div id="draw-info" class="winner-message">
-                           <p></p>
-                       </div>
-                   </div>
+                   <div id="game-msg-div" class="game-msg-div"></div>
                    <div id="game-controls-btns">
-                       <div id="restart-box">
-                           <button id="restart-btn"><span class="icon-reset">reset</span></button>
-                       </div>
-                       <div id="close-box">
-                           <button id="close-btn"><span class="incon-close">X</span></button>
-                       </div>
+                       
                    </div>
                    <div id="game-canvas">
                        <div id="board" class="conteiner-tablero">
-                               <canvas id="game-box-canvas" width="1000" height="380"></canvas>
-                           <div id="game-modal"></div>
+                               <canvas id="game-box-canvas" class="canvas" width="1000" height="380"></canvas>
+                           <div id="game-modal" class="game-modal"></div>
                        </div>
                    </div>
-                       
+                   <img src="images/4enLinea/4EnLinea-1.jpg" class="imagen-fondo-juego" alt="Imagen de fondo">    
                </div>
                <div id="conteiner-btn-gameExecute">
                    <button id="btn-ejecutar" class="btn-jugar-ppal">Jugar</button>
@@ -303,7 +273,6 @@
     </footer>
     <script src="js/home.js"></script>
     <script src="js/menu.js"></script>
-    <script src="js/Player.js"></script>
     <script src="js/Figure.js"></script>
     <script src="js/Spot.js"></script>
     <script src="js/Piece.js"></script>

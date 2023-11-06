@@ -52,8 +52,8 @@ class Timer {
     }
   
     start() {
-        if (this.remainingSeconds === 0) return;
-    
+        if (this.remainingSeconds === 0) 
+            return;
         this.interval = setInterval(() => {
             this.remainingSeconds--;
             this.updateInterfaceTime();
@@ -68,10 +68,12 @@ class Timer {
   
     stop() {
         clearInterval(this.interval);
-    
         this.interval = null;
-    
         this.updateInterfaceControls();
+        showMsgInGameBox("Se acabo el tiempo!!", 3000);
+        setTimeout(() => {
+            renderizarJuego();
+        }, 3000);
     }
   
     static getHTML() {
@@ -79,10 +81,10 @@ class Timer {
                 <span class="timer__part timer__part--minutes">05</span>
                 <span class="timer__part">:</span>
                 <span class="timer__part timer__part--seconds">00</span>
-                <button type="button" class="timer__btn timer__btn--control timer__btn--start">
+                <button type="button" class="timer__btn timer__btn--control timer__btn--start hide">
                     <span class="material-icons">play_arrow</span>
                 </button>
-                <button type="button" class="timer__btn timer__btn--reset">
+                <button type="button" class="timer__btn timer__btn--reset hide">
                     <span class="material-icons">timer</span>
                 </button>
             `;
