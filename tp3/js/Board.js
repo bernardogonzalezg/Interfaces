@@ -46,12 +46,16 @@ class Board{
 
     draw() {
         this.context.clearRect(0, 0, CANVAS.width, CANVAS.height);
-        for(const arrow of this.arrows) arrow.draw();
+        for(const arrow of this.arrows) 
+            arrow.draw();
         for(const row of this.spots) { 
-            for(const spot of row) spot.draw();
+            for(const spot of row) 
+                spot.draw();
         }
-        for(const piece of this.pieces.player1.pieces) piece.draw();
-        for(const piece of this.pieces.player2.pieces) piece.draw(); 
+        for(const piece of this.pieces.player1.pieces) 
+            piece.draw();
+        for(const piece of this.pieces.player2.pieces) 
+            piece.draw(); 
     }
 
     //start: Indica en qué lugar del canvas empieza 
@@ -99,10 +103,12 @@ class Board{
 
     findSelectedElement(x, y) { 
         for(const el of this.pieces.player1.pieces) {
-            if(el.isPointInside(x, y)) return el;
+            if(el.isPointInside(x, y)) 
+                return el;
         }
         for(const el of this.pieces.player2.pieces) {
-            if(el.isPointInside(x, y)) return el;
+            if(el.isPointInside(x, y)) 
+                return el;
         }
     }
 
@@ -110,7 +116,8 @@ class Board{
         for(const arrow of this.arrows) {
             arrow.setHighlight(false);
         }
-        if(hgl) this.arrows[index].setHighlight(true);
+        if(hgl) 
+            this.arrows[index].setHighlight(true);
     }
 
     findSelectedColumn(x, y) {

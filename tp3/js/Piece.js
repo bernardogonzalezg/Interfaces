@@ -5,11 +5,12 @@ class Piece extends Figure{
         this.player = fill;
         this.image = this.createImage(fill);
         this.isPlayed = false;
+        console.log(fill);
     }
 
     createImage(fill) {
         let image = new Image();
-        image.src = "../images/juego/" + fill + ".png";
+        image.src = "../images/4enLinea/" + fill + ".png";
         image.width = this.radious*2;
         image.height = this.radious*2;
         return image;
@@ -26,12 +27,13 @@ class Piece extends Figure{
     setRadious(radious) {this.radious = radious;}
 
     draw() {
+        console.log(this.image);
         this.cxt.save();
         this.cxt.beginPath();
         this.cxt.arc(this.x, this.y, this.radious, 0, 2 * Math.PI);
         this.cxt.closePath();
         this.cxt.clip();
-
+    
         this.cxt.drawImage(this.image, this.x-this.radious, this.y-this.radious, this.image.width, this.image.height);
         if(this.highlight === true) {
             this.cxt.strokeStyle = this.highlightStyle;

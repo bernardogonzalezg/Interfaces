@@ -151,8 +151,7 @@ function renderizarJuego(){
     conteinerJuego.classList.remove("container-inactivo");
     conteinerOpciones.classList.add("container-inactivo");
     conteinerOpciones.classList.remove("container-activo");
-    let board = new Board(current_mode, 1, 2);
-    return board;
+    play();
 }
 
 //desactiva el juego y activa la presentacion
@@ -183,15 +182,12 @@ function checkSettings() {
     return true;   
 }
 
-
-
-
-
 /*------------------- GAME FUNCTIONALITY --------------------*/
 const CANVAS = document.querySelector("#game-box-canvas");
 const MSG_BOX = document.querySelector("#game-msg-div");
 
 /*-----------------*/ 
+let board;
 let current_player;
 let next_player;
 let isDragging = false;
@@ -221,8 +217,8 @@ function setTurn() {
  * 
  */
 function onMouseUp(e) {
-    if(!isDragging) return;
-
+    if(!isDragging) 
+        return;
     e.preventDefault();
     e.stopPropagation();
     isDragging = false;
@@ -262,7 +258,8 @@ function onMouseUp(e) {
  * Cuando la ficha seleccionada es draggueada fuera del canvas, vuelve a mostrarla en la pila
  */
 function onMouseOut(e) {
-    if(!isDragging) return;
+    if(!isDragging) 
+        return;
     e.preventDefault();
     e.stopPropagation();
     isDragging = false;
@@ -281,8 +278,8 @@ function onMouseOut(e) {
  * se resalta la flecha que está sobre ella
  */
 function onMouseMove(e) {
-    if(!isDragging) return;
-
+    if(!isDragging) 
+        return;
     e.preventDefault();
     e.stopPropagation();
     if(isDragging && selectedPiece != null) {
@@ -307,6 +304,7 @@ function onMouseMove(e) {
 function onMouseDown(e) {
     e.preventDefault();
     isDragging = true;
+    console.log(selectedPiece);
     if(selectedPiece != null) {
         selectedPiece.setHighlight(false);
         selectedPiece = null;
@@ -332,11 +330,23 @@ function onMouseDown(e) {
 
     //Muestra error si el jugador que no tiene el turno intenta mover una ficha...
     if(clickedPiece != null && clickedPiece.getPlayer() != current_player) {
-        let span = document.querySelector(".game-box");
+        let span = document.querySelector("#game-box");
         span.classList.add("danger");
         setTimeout( () => {span.classList.remove("danger");}, 1000);
     }
     
+}
+
+/**
+ * Cuando el contador llega a 0, si no hay un ganador, 
+ * avisa que se ha acabo el tiempo y reinicia el juego
+ */
+function timeOver() {
+    if(board.getWinner() == null) {
+        let msg = `<p>Tiempo acabado, magos!</p>`;
+        showMsgInModalBox(msg, 3000);
+        play(true);
+    }
 }
 
 
@@ -344,12 +354,11 @@ function onMouseDown(e) {
 
 
 //Setea los eventos del juego...
-function setGameEvents() {
-    CANVAS.addEventListener("mousedown",  (e) => {onMouseDown(e);});
-    CANVAS.addEventListener("mouseup",  (e) => {onMouseUp(e);});
-    CANVAS.addEventListener("mousemove",  (e) => {onMouseMove(e);});
-    CANVAS.addEventListener("mouseout",  (e) => {onMouseOut(e);});
-    
+function setGameEvents(){
+    CANVAS.addEventListener("mousedown", onMouseDown);
+    CANVAS.addEventListener("mouseup", onMouseUp);
+    CANVAS.addEventListener("mousemove", onMouseMove);
+    CANVAS.addEventListener("mouseout", onMouseOut);
 }
 
 function showTurn() {
@@ -372,7 +381,20 @@ function showMsgInModalBox(msg, time) {
 }
 
 
+function play(restart) {
+    if(restart || checkSettings()) {
 
+        //Show timer and board...
+        new Timer(document.querySelector(".timer"));
+        board = new Board(current_mode, player1, player2);
+
+        //Setea los eventos de mouse necesarios para el juego y comienza...
+        setGameEvents();   
+          
+        //Dar turno al primer jugador...
+        setTurn();
+    }
+}
 
 
 /*------------------------  Onload: Change view -------------------------------*/
