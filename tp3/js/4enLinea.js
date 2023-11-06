@@ -120,13 +120,13 @@ function selectMode(inputs, valor){
 };
 
 function setBoard(name_current_mode) {
-    if(name_current_mode === "basico")
+    if(name_current_mode === "Basico")
         current_mode = basico;
-    else if(name_current_mode === "intermedio")
+    else if(name_current_mode === "Intermedio")
         current_mode = intermedio;
-    else if(name_current_mode === "avanzado")
+    else if(name_current_mode === "Avanzado")
         current_mode = avanzado;
-    else if(name_current_mode === "mundial")
+    else if(name_current_mode === "Mundial")
         current_mode = mundial;
 }
 
@@ -296,7 +296,6 @@ function onMouseMove(e) {
 function onMouseDown(e) {
     e.preventDefault();
     isDragging = true;
-    console.log(selectedPiece);
     if(selectedPiece != null) {
         selectedPiece.setHighlight(false);
         selectedPiece = null;
@@ -310,12 +309,11 @@ function onMouseDown(e) {
                 selectedPiece.setHighlight(true);
             } else {
                 selectedPiece.setPosition(selectedPiece_initialPosition.x, selectedPiece_initialPosition.y);
-                console.log(selectedPiece);
                 selectedPiece.setHighlight(false);
                 board.draw();
             }
         } else {
-            let msg = `<p>Mil hechizos no moverían esa ficha, <span class="game-box">` + current_player + `</span>!</p>`;
+            let msg = `<p>No puedes mover una ficha ya jugada, <span class="game-box">` + current_player + `</span>!</p>`;
             showMsgInModalBox(msg, 2000);
         }
     }
