@@ -6,15 +6,6 @@ class Spot extends Figure {
         this.height = height;
         this.piece = null;
         this.free = true;
-        this.image = this.createImage();
-    }
-
-    createImage() {
-        let image = new Image();
-        //image.src = "../images/4enLinea/img1.jpg";
-        image.width = this.width;
-        image.height = this.height;
-        return image;
     }
 
     isFree() {return this.free;}
@@ -38,12 +29,11 @@ class Spot extends Figure {
             this.cxt.strokeStyle = this.highlightStyle;
             this.cxt.lineWidth = 5;
         }
-        // this.ctx.globalAlpha = 0.2;
-        this.cxt.fillStyle = "rgba(80, 76, 76, 0.5)";
+        this.cxt.fillStyle = "rgba(80, 76, 76, 0.8)";
         this.cxt.fillRect(this.x, this.y, this.width, this.height);
-        // this.cxt.strokeRect(this.x, this.y, this.width, this.height);
     }
 
+    //verifica si ficha cae dentro de uan columna del tablero 
     isPointInside(x, y) {
         return (x > this.x && x < this.x + this.width && y > this.y && y < this.y + this.height);
     }

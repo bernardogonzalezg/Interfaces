@@ -26,21 +26,24 @@ let mundial = {
     pieces: 60
 }
 
-
 const SETTINGS_BOX = document.querySelector("#game-settings");
 const GAME_BOX = document.querySelector("#game-box");
 
-
-
-/*------------------------- GAME SETTINGS ----------------------------*/
+//variables globales
 let current_mode = basico;  //Por defecto
 let player1;
 let player2;
+let board;
+let current_player;
+let next_player;
+let isDragging = false;
+let selectedPiece;
+let selectedPiece_initialPosition;
+let selectedColumn;
 
-
-/**
- * Crea, muestra y elimina del dom un mensaje de recibido por parámetro, 
- * después de 2 segundos
+/*
+  Crea, muestra y elimina del dom un mensaje recibido por parámetro, 
+  después de 2 segundos
  */
 function showErrorMsg(msg) {
     let section = document.querySelector(".piece-settings");
@@ -54,38 +57,33 @@ function showErrorMsg(msg) {
     }, 2000);
 }
 
-/**
- * Permite seleccionar la ficha con la que jugará cada participante
- */
+// Permite seleccionar la ficha con la que jugará cada participante
 function selectPiece(selectedBtn, btnsContainer, player) {
-    //Por cada botón, quita la selección...
+    //Por cada botón, remueve la clase que lo destaca
     for (const btn of btnsContainer.children) {
         btn.classList.remove("piece-settings-btn-active");
     }
-    //Selecciona el correcto...
+    //agrega la clase que lo destaca al boton pasado por parametro
     selectedBtn.classList.add("piece-settings-btn-active");
-    //Guarda los valores...
+    //Guarda los valores
     if(player == 1) player1 = selectedBtn.value;
     else player2 = selectedBtn.value;
-    //Si coinciden, muestra el error...
+    //Si coinciden, no deja ninguna selecionado y tira mensaje de error
     if(player1 == player2) {
         showErrorMsg("Selecciona un superheroe distinto.");
-        //Des-selecciona los botones...
         for (const btn of btnsContainer.children) {
             btn.classList.remove("piece-settings-btn-active");
         }
-        //Des-guarda los valores...
+        //reinicia los valores
         if(player == 1) player1 = null;
         else player2 = null;
     }
 }
 
-/**
- * Setea los eventos que permiten seleccionar el modo, 
- * las fichas -chequeando que sean diferentes entre sí- 
- * y el botón "jugar"
+/* selecciona las opciones de juego
  */
 function setFormBtnsEvents() {
+    //clasifica el modo de juego y lo envia para armar el tablero
     let radioInputs = document.querySelectorAll("input");
         radioInputs.forEach((input) => {
         input.addEventListener("click", () => {
@@ -96,14 +94,14 @@ function setFormBtnsEvents() {
         });
     });
     
-
+    //determina que personaje es elegido por el player 1
     let btnsContainer = document.querySelector("#player-1-piece-btns");
     for (const btn of btnsContainer.children) {
         btn.addEventListener("click", (e) => {
             e.preventDefault();
             selectPiece(btn, btnsContainer, 1)});
     }
-
+    //determina que personaje es elegido por el player 2
     let ScndBtnsContainer = document.querySelector("#player-2-piece-btns");
     for (const btn of ScndBtnsContainer.children) {
         btn.addEventListener("click", (e) => {
@@ -112,6 +110,7 @@ function setFormBtnsEvents() {
     }
 }
 
+//clasifica el modo elegido
 function selectMode(inputs, valor){
     inputs.forEach(i => {
         if(i.value != valor)
@@ -119,6 +118,7 @@ function selectMode(inputs, valor){
     });
 };
 
+//setea el tablero segun el modo elegido
 function setBoard(name_current_mode) {
     if(name_current_mode === "Basico")
         current_mode = basico;
@@ -134,28 +134,24 @@ function setBoard(name_current_mode) {
 // inicializa el juego
 document.querySelector("#play-settings-btn").addEventListener("click", renderizarJuego);
 
-/**
- * Controla que ambos jugadores hayan seleccionado ficha 
- * Cambia la vista de settings por la vista del juego
- * Inicializa el timer y el tablero
- * Setea los eventos necesarios
- * Da comienzo al juego
- */
+//guarda contenedores del dom, que luego se muestran o oculatan
 let conteinerJuego = document.querySelector("#game-box");
 let conteinerOpciones = document.querySelector("#game-settings");
 let conteinerInicial = document.querySelector("#conteiner-btn-gameExecute");
 
-//desactiva al cargar el juego y las opciones de juego
+//desactiva el juego y las opciones de juego, al cargar el dom muestra la presentación del juego
 conteinerJuego.classList.add("container-inactivo");
 conteinerOpciones.classList.add("container-inactivo");
 
-//activa las opciones, desactiva la presentacion
+//activa las opciones, desactiva la presentación
 function irOpciones() {
     conteinerOpciones.classList.add("container-activo");
     conteinerOpciones.classList.remove("container-inactivo");
     conteinerInicial.classList.add("container-inactivo");
 }
- //desactiva las opciones y activa el juego
+
+//controla que las opciones esten seteadas e inicia el juego
+//desactiva las opciones y activa el juego
 function renderizarJuego(){
     if (checkSettings()){
         play();
@@ -166,14 +162,14 @@ function renderizarJuego(){
     }
 }
 
+//eventos que dan funcionalidad a los botones para acceder a las opociones y al juego.
 document.querySelector("#btn-ejecutar").addEventListener("click", irOpciones);
 document.querySelector("#play-settings-btn").addEventListener("click", renderizarJuego);
 document.querySelector("#restart-btn").addEventListener("click", renderizarJuego);
 
 
-/**
- * Chequea que se hayan elegido las fichas...
- */
+
+//Chequea que se hayan elegido las fichas.
 function checkSettings() {
     if(player1 == null && player2 == null) {
         showErrorMsg("Selecciona un superheroe");
@@ -186,24 +182,12 @@ function checkSettings() {
     return true;   
 }
 
-/*------------------- GAME FUNCTIONALITY --------------------*/
 const CANVAS = document.querySelector("#game-box-canvas");
 const MSG_BOX = document.querySelector("#game-msg-div");
-
-/*-----------------*/ 
-let board;
-let current_player;
-let next_player;
-let isDragging = false;
-let selectedPiece;
-let selectedPiece_initialPosition;
-let selectedColumn;
-
 const GAME_MODAL = document.querySelector("#game-modal");
 
-/**
- * Setea qué jugador tiene el turno
- */
+
+//Setea qué jugador tiene el turno y llama a mostrarlo
 function setTurn() {
     if(current_player == null) {
         current_player = player1;
@@ -216,10 +200,11 @@ function setTurn() {
     showTurn(); 
 }
 
-/**
- * Si se está arrastrando una ficha al soltar el mouse,
- * 
- */
+
+//Si se está arrastrando una ficha al soltar el mouse, deja de propagarse
+//chequea si se detuvo dentro del tablero y si la columna esta llena
+//controla si el juegador gano, sino setea el turno.
+//vuelve a dibujar el tablero
 function onMouseUp(e) {
     if(!isDragging) 
         return;
@@ -237,20 +222,17 @@ function onMouseUp(e) {
                 if(winner == null) {
                     setTurn(); 
                 } else {
-                    let msg = `<p>Felicitaciones <span class="game-box">` + winner + `</span> ganaste!</p>`; 
+                    let msg = `<p>Felicitaciones <span class="game-box">` + winner + `</span>, ganaste!</p>`; 
                     showMsgInModalBox(msg, 5000);
-                    //setTimeout(() => {play(true)}, 5000);
                 }}, 1000);        
         }
         board.draw();
     }
 }
 
-/**
- * Cuando la ficha seleccionada es arrastrada fuera del canvas, vuelve a mostrarla en la pila
- */
+//Cuando la ficha seleccionada es arrastrada fuera del canvas, vuelve a mostrarla en la pila
 function onMouseOut(e) {
-    if(!isDragging) e
+    if(!isDragging)
         return;
     e.preventDefault();
     e.stopPropagation();
@@ -258,17 +240,19 @@ function onMouseOut(e) {
     if(selectedPiece != null) {
         selectedPiece.setPosition(selectedPiece_initialPosition.x, selectedPiece_initialPosition.y);
         board.draw();
-        setTimeout(() => {selectedPiece.setHighlight(false); board.draw();}, 500);
+        setTimeout(() => {
+            selectedPiece.setHighlight(false); 
+            board.draw();
+        }, 500);
     }
 }
 
-
-/**
- * Si al mover el mouse se está draggueando una ficha al mover el mouse, 
- * va renovando su posición
- * Si se está draggueando la ficha sobre una columna del tablero, 
- * se resalta la flecha que está sobre ella
- */
+/*
+Si al mover el mouse se está arrastrando una ficha al mover el mouse, 
+va renovando su posición
+Si se está arrastrando la ficha sobre una columna del tablero, 
+se resalta la flecha que está sobre ella
+*/
 function onMouseMove(e) {
     if(!isDragging) 
         return;
@@ -288,11 +272,7 @@ function onMouseMove(e) {
     }
 }
 
-
-
-/**
- * Si el jugador que tiene el turno selecciona una ficha, la guarda y muestra resaltada
- */
+//Si el jugador que tiene el turno selecciona una ficha, la guarda y muestra resaltada
 function onMouseDown(e) {
     e.preventDefault();
     isDragging = true;
@@ -318,30 +298,26 @@ function onMouseDown(e) {
         }
     }
 
-    //Muestra error si el jugador que no tiene el turno intenta mover una ficha...
+    //Si el jugador que no tiene el turno intenta mover una ficha, resalta el mensaje de quien es el turno
     if(clickedPiece != null && clickedPiece.getPlayer() != current_player) {
-        let span = document.querySelector("#game-box");
+        let span = document.querySelector("#game-msg-div");
         span.classList.add("danger");
-        setTimeout( () => {span.classList.remove("danger");}, 1000);
+        setTimeout( () => {
+            span.classList.remove("danger");
+        }, 1000);
     }
     
 }
 
-/**
- * Cuando el contador llega a 0, si no hay un ganador, 
- * avisa que se ha acabo el tiempo y reinicia el juego
- */
+//Cuando el contador llega a 0, si no hay un ganador, 
+//avisa que se ha acabo el tiempo y reinicia el juego
 function timeOver() {
     if(board.getWinner() == null) {
         let msg = `<p>Tiempo acabado</p>`;
         showMsgInModalBox(msg, 3000);
-        play(true);
+        play();
     }
 }
-
-
-/*------------------------- Ongoing game settings ----------------------------*/
-
 
 //Setea los eventos del juego...
 function setGameEvents(){
@@ -351,17 +327,22 @@ function setGameEvents(){
     CANVAS.addEventListener("mouseout", onMouseOut);
 }
 
+//muestra el turno
 function showTurn() {
     if(MSG_BOX.classList.contains("danger")) MSG_BOX.classList.remove("danger");
     MSG_BOX.innerHTML = `<p>Juega <span class="game-box">` + current_player +`</span></p>`;
 }
 
+//muestra mensajes que recibe por parametro durante un tiempo dado
 function showMsgInGameBox(msg, time) {
     MSG_BOX.classList.add("danger");
     MSG_BOX.innerHTML = msg;
-    setTimeout(() => {showTurn();}, time);
+    setTimeout(() => {
+        showTurn();
+    }, time);
 }
 
+//muestra el mensaje, y cambia el estilo de su contenedor, por un tiempo dado.
 function showMsgInModalBox(msg, time) {
     GAME_MODAL.classList.add("active");
     GAME_MODAL.innerHTML = msg;
@@ -370,19 +351,18 @@ function showMsgInModalBox(msg, time) {
     }, time);
 }
 
-
+//inicializa el juego
 function play() {
     if(checkSettings()) {
-
-        //Show timer and board...
+        //inicia el tiempo y instancia el tablero
         let timer = new Timer(document.querySelector(".timer"));
         timer.start();
         board = new Board(current_mode, player1, player2);
 
-        //Setea los eventos de mouse necesarios para el juego y comienza...
+        //Setea los eventos de mouse necesarios para el juego y comienza.
         setGameEvents();   
           
-        //Dar turno al primer jugador...
+        //Da turno al primer jugador.
         setTurn();
     }
 }

@@ -1299,7 +1299,6 @@ color:#E0D5EA;
         font-size: 200%;
         padding: 0px 5px;
         margin-top: 2px;
-
     }
   
     .danger {
@@ -1308,8 +1307,4 @@ color:#E0D5EA;
         font-size: 130%;
     }
 
-    .hide{
-        display: none;
-    }
-  
 }

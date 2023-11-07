@@ -8,8 +8,9 @@ class Arrow extends Figure {
         this.arrowWidth = arrowWidth;
     }
 
+    //dibuja la flecha
     draw(){
-        //variables to be used when creating the arrow
+        //Variables que se utilizarán al crear la flecha
         let headlen = 10;
         let angle = Math.atan2(this.toy-this.y,this.tox-this.x);
      
@@ -19,33 +20,32 @@ class Arrow extends Figure {
         } else {
             this.cxt.strokeStyle = this.color;
         }
-     
-        //starting path of the arrow from the start square to the end square
-        //and drawing the stroke
+
+        //trazo inicial de la flecha desde el cuadrado inicial hasta el cuadrado final
+        //y dibujando el trazo
         this.cxt.beginPath();
         this.cxt.moveTo(this.x, this.y);
         this.cxt.lineTo(this.tox, this.toy);
         this.cxt.lineWidth = this.arrowWidth;
         this.cxt.stroke();
      
-        //starting a new path from the head of the arrow to one of the sides of
-        //the point
+        //comenzando un nuevo trazo desde la punta de la flecha hasta uno de los lados del punto
         this.cxt.beginPath();
         this.cxt.moveTo(this.tox, this.toy);
         this.cxt.lineTo(this.tox-headlen*Math.cos(angle-Math.PI/7),
                         this.toy-headlen*Math.sin(angle-Math.PI/7));
      
-        //path from the side point of the arrow, to the other side point
+        //trazo desde el punto lateral de la flecha hasta el otro punto lateral
         this.cxt.lineTo(this.tox-headlen*Math.cos(angle+Math.PI/7),
                         this.toy-headlen*Math.sin(angle+Math.PI/7));
      
-        //path from the side point back to the tip of the arrow, and then
-        //again to the opposite side point
+        //trazo desde el punto lateral hasta la punta de la flecha, y luego
+        //nuevamente al punto del lado opuesto
         this.cxt.lineTo(this.tox, this.toy);
         this.cxt.lineTo(this.tox-headlen*Math.cos(angle-Math.PI/7),
                         this.toy-headlen*Math.sin(angle-Math.PI/7));
      
-        //draws the paths created above
+        //dibuja los trazos creados arriba
         this.cxt.stroke();
         this.cxt.restore();
     }

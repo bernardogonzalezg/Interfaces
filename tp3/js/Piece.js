@@ -5,7 +5,6 @@ class Piece extends Figure{
         this.player = fill;
         this.image = this.createImage(fill);
         this.isPlayed = false;
-        console.log(fill);
     }
 
     createImage(fill) {
@@ -27,7 +26,7 @@ class Piece extends Figure{
     setRadious(radious) {this.radious = radious;}
 
     draw() {
-        console.log(this.image.src);
+        console.log(this.image);
         this.cxt.save();
         this.cxt.beginPath();
         this.cxt.arc(this.x, this.y, this.radious, 0, 2 * Math.PI);
