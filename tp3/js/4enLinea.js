@@ -205,27 +205,33 @@ function setTurn() {
 //controla si el juegador gano, sino setea el turno.
 //vuelve a dibujar el tablero
 function onMouseUp(e) {
-    if(!isDragging) 
+    if (!isDragging) 
         return;
     e.preventDefault();
     e.stopPropagation();
     isDragging = false;
-    if(selectedPiece != null && selectedColumn != null) {
-        if(board.isFull(selectedColumn)) {
+    if (selectedPiece != null && selectedColumn != null) {
+        if (board.isFull(selectedColumn)) {
             selectedPiece.setPosition(selectedPiece_initialPosition.x, selectedPiece_initialPosition.y);
             showMsgInModalBox("No hay más espacio para poner una ficha en la columna", 3000);
         } else {
             board.savePlay(selectedPiece, selectedColumn);
             setTimeout(() => {
                 let winner = board.checkWinner(selectedPiece, selectedColumn);
-                if(winner == null) {
+                if (winner == null) {
                     setTurn(); 
                 } else {
+                    GAME_MODAL.classList.add("game-modal");
                     let msg = `<p>Felicitaciones <span class="game-box">` + winner + `</span>, ganaste!</p>`; 
-                    showMsgInModalBox(msg, 500);
-                }}, 1000);        
+                    showMsgInModalBox(msg, 3000); // Mostrar durante 5 segundos
+
+                    // Llamar a la función de renderizar juego después de 5 segundos
+                    setTimeout(renderizarJuego, 3000);
+                }
+            }, 1000);
+
+            board.draw();
         }
-        board.draw();
     }
 }
 
@@ -346,6 +352,7 @@ function showMsgInModalBox(msg, time) {
     GAME_MODAL.innerHTML = msg;
     setTimeout(() => {
        GAME_MODAL.classList.add("container-inactivo");
+       GAME_MODAL.classList.remove("game-modal");
     }, time);
 }
 

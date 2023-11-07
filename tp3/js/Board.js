@@ -408,7 +408,6 @@ class Board{
             if(line == null) line = this.checkRows();
             if(line == null) line = this.checkDiagonals(piece, column);
             if(line != null && this.winner != null) {
-                console.log("entra a mostrar ganador");
                 this.showWinnerPlay(line);
                 return this.winner;
             }
