@@ -7,6 +7,7 @@ class Piece extends Figure{
         this.isPlayed = false;
     }
 
+    //crea la imagen de las fichas con el personaje seleccionado por cada participante.
     createImage(fill) {
         let image = new Image();
         image.src = "images/4enLinea/" + fill + ".png";
@@ -25,23 +26,25 @@ class Piece extends Figure{
 
     setRadious(radious) {this.radious = radious;}
 
+    //dibuja las fichas
     draw() {
-        console.log(this.image);
         this.cxt.save();
         this.cxt.beginPath();
         this.cxt.arc(this.x, this.y, this.radious, 0, 2 * Math.PI);
         this.cxt.closePath();
         this.cxt.clip();
-    
+        //completa las fichas con la imagen correspondiente en cada una.
         this.cxt.drawImage(this.image, this.x-this.radious, this.y-this.radious, this.image.width, this.image.height);
+        //remarca la ficha seleccionada.
         if(this.highlight === true) {
             this.cxt.strokeStyle = this.highlightStyle;
-            this.cxt.lineWidth = 10;
+            this.cxt.lineWidth = 5;
         }
         this.cxt.stroke();
         this.cxt.restore();
     }
 
+    //indica si se selecciono un ficha.
     isPointInside(x, y) {
         let _x = this.x - x;
         let _y = this.y - y;

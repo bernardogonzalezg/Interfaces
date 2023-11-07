@@ -80,8 +80,7 @@ function selectPiece(selectedBtn, btnsContainer, player) {
     }
 }
 
-/* selecciona las opciones de juego
- */
+//selecciona las opciones de juego
 function setFormBtnsEvents() {
     //clasifica el modo de juego y lo envia para armar el tablero
     let radioInputs = document.querySelectorAll("input");
@@ -223,7 +222,7 @@ function onMouseUp(e) {
                     setTurn(); 
                 } else {
                     let msg = `<p>Felicitaciones <span class="game-box">` + winner + `</span>, ganaste!</p>`; 
-                    showMsgInModalBox(msg, 5000);
+                    showMsgInModalBox(msg, 500);
                 }}, 1000);        
         }
         board.draw();
@@ -344,7 +343,6 @@ function showMsgInGameBox(msg, time) {
 
 //muestra el mensaje, y cambia el estilo de su contenedor, por un tiempo dado.
 function showMsgInModalBox(msg, time) {
-    GAME_MODAL.classList.add("active");
     GAME_MODAL.innerHTML = msg;
     setTimeout(() => {
        GAME_MODAL.classList.add("container-inactivo");
@@ -368,7 +366,6 @@ function play() {
 }
 
 
-/*------------------------  Onload: Change view -------------------------------*/
 function load() {
     setFormBtnsEvents(); 
 }

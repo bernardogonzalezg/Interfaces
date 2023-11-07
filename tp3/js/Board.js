@@ -82,7 +82,7 @@ class Board{
     createArrows(start, width) {
         let arrowsRow = [];
         for (let col = 0; col < this.mode.columns; col++) {
-            let arrow = new Arrow(start, this.ygap, this.context, start, this.spotSize/2, width, "#490483");
+            let arrow = new Arrow(start, this.ygap, this.context, start, this.spotSize/2, width, "#C0C6FA");
             arrowsRow.push(arrow);
             start += (this.spotSize + this.ygap);
         }
@@ -203,7 +203,7 @@ class Board{
     //Marca las piezas ganadoras en el tablero.
     showWinnerPlay(line) {
         for(const piece of line) {
-            piece.setHighlightStyle("#C0C6FA");
+            piece.setHighlightStyle("#490483");
             piece.setHighlight(true);
         }
         this.draw();

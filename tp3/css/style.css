@@ -1216,13 +1216,17 @@ color:#E0D5EA;
     }
 
     .game-controlers button{
-        border-radius: 40px;
+        border-radius: 10px;
         background-color: #490483;
         color: #E0D5FA;
     }
 
+    #restart-btn:hover{
+        padding: 2.5px 4.5px;
+    }
+
     #restart-btn{
-        padding-left: 12%;
+        padding: 3px 5px;
     }
 
     .icon-reset{
@@ -1283,6 +1287,12 @@ color:#E0D5EA;
         background-size: cover;
         z-index: -1;
     }
+    
+    .conteiner-tablero{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
 
     .canvas {
         margin-left: 1%;
@@ -1307,4 +1317,7 @@ color:#E0D5EA;
         font-size: 130%;
     }
 
+    .timer{
+        padding-left: 20%;
+    }
 }
