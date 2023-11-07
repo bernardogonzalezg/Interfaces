@@ -20,7 +20,7 @@ class Timer {
         });
   
         this.el.reset.addEventListener("click", () => {
-            const inputMinutes = prompt("Enter number of minutes:");
+            const inputMinutes = prompt("Enter number of minutes:"); //setea el tiempo a criterio del usuario. Deshabilitado
     
             if (inputMinutes < 60) {
                 this.stop();
@@ -81,10 +81,10 @@ class Timer {
                 <span class="timer__part timer__part--minutes">05</span>
                 <span class="timer__part">:</span>
                 <span class="timer__part timer__part--seconds">00</span>
-                <button type="button" class="timer__btn timer__btn--control timer__btn--start hide">
+                <button type="button" class="timer__btn timer__btn--control timer__btn--start container-inactivo">
                     <span class="material-icons">play_arrow</span>
                 </button>
-                <button type="button" class="timer__btn timer__btn--reset hide">
+                <button type="button" class="timer__btn timer__btn--reset container-inactivo">
                     <span class="material-icons">timer</span>
                 </button>
             `;

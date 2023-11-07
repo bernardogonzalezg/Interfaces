@@ -5,7 +5,7 @@ class Figure {
         this.y = y;
         this.cxt = context;
         this.highlight = false;
-        this.highlightStyle = "yellow";
+        this.highlightStyle = "#490483";
     }
 
     setPosition(x, y) {

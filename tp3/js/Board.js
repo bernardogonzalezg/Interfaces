@@ -5,6 +5,7 @@ class Board{
     xgap = 2;
     spotSize;
 
+    //construye el tablero, creando las celdas, las flechas y elas fichas
     constructor(mode, player1, player2) {
         this.mode = mode;
         this.player1 = player1;
@@ -21,7 +22,7 @@ class Board{
         let arrowH = this.spotSize/2;
         let arrowsRowStart = xBoardStart + this.spotSize/2;
         this.arrows = this.createArrows(arrowsRowStart, arrowW);
-        this.spots = this.createSpots(xBoardStart, arrowH+this.margin); //this.spots = [columna[spots], columna[spots]...]
+        this.spots = this.createSpots(xBoardStart, arrowH+this.margin);
         this.pieces = {
             player1 : {
                 "name": player1,
@@ -44,6 +45,7 @@ class Board{
 
     getSpotSize() {return this.spotSize;}
 
+    //marca el tamaño del tablero, dibuja las flechas, las celdas, y las fichas.
     draw() {
         this.context.clearRect(0, 0, CANVAS.width, CANVAS.height);
         for(const arrow of this.arrows) 
@@ -58,7 +60,7 @@ class Board{
             piece.draw(); 
     }
 
-    //start: Indica en qué lugar del canvas empieza 
+    //crea las celdas segun el modo de juego (dificulad).
     createSpots(xstart, ystart) {
         let spots = [];
         let posx = xstart;
@@ -76,18 +78,18 @@ class Board{
         return spots;
     }
 
+    //crea las flechas
     createArrows(start, width) {
         let arrowsRow = [];
-         //drawArrow(ctx, 100, 10, 100, 50, 10, 'red');
         for (let col = 0; col < this.mode.columns; col++) {
-            //  arrow = new Arrow(fromx,  fromy,        ctx,      tox,  toy, arrowWidth, color)
-            let arrow = new Arrow(start, this.ygap, this.context, start, this.spotSize/2, width, "grey");
+            let arrow = new Arrow(start, this.ygap, this.context, start, this.spotSize/2, width, "#C0C6FA");
             arrowsRow.push(arrow);
             start += (this.spotSize + this.ygap);
         }
         return arrowsRow;
     }
 
+    //crea las fichas
     createPieces(player, startx) {
         let pieces = [];
         let radious = this.spotSize/2;
@@ -101,6 +103,7 @@ class Board{
         return pieces;
     }  
 
+    //chequea si cada ficha es seleccionada
     findSelectedElement(x, y) { 
         for(const el of this.pieces.player1.pieces) {
             if(el.isPointInside(x, y)) 
@@ -112,6 +115,7 @@ class Board{
         }
     }
 
+    //resalta las flechas correspondientes a la columna donde se coloco una fiha
     highlightColumn(index, hgl) {
         for(const arrow of this.arrows) {
             arrow.setHighlight(false);
@@ -120,6 +124,7 @@ class Board{
             this.arrows[index].setHighlight(true);
     }
 
+    //chequea que la ficha este sobre una columna y devuelve el indice de la columna
     findSelectedColumn(x, y) {
         for(const column of this.spots) {
             for (const spot of column) {
@@ -130,6 +135,7 @@ class Board{
         }
     }
 
+    //cheque que la columna este llena
     isFull(columnIndex) {
         let column = this.spots[columnIndex];
         for(const spot of column) {
@@ -140,6 +146,7 @@ class Board{
         return true;
     }
 
+    //asienta la ficha en el tablero.
     settlePiece(interval, spot, piece, columnIndex) {
         clearInterval(interval);
         interval = null;
@@ -152,6 +159,7 @@ class Board{
 
     played_pieces = 0;
 
+    //ubica a la ficha en el ultimo lugara disponible de columna seleccionada.
     savePlay(piece, columnIndex) {
         if(!piece.getIsPlayed()) {
             piece.setIsPlayed(true);
@@ -170,7 +178,7 @@ class Board{
                             spot = column[row++];
                         } 
                         else {
-                            if ( row == column.length - 1 ) { // Llego al ultimo spot (fila)
+                            if ( row == column.length - 1 ) { // Llego a la ultima celda (fila)
                                 spot = column[row];
                                 this.settlePiece(interval, spot, piece, columnIndex);
                                 this.played_pieces++;
@@ -190,18 +198,18 @@ class Board{
         }
     }
         
-
-    /*--------------------- Checks -----------------*/
     winner = null;
 
+    //Marca las piezas ganadoras en el tablero.
     showWinnerPlay(line) {
         for(const piece of line) {
-            piece.setHighlightStyle("green");
+            piece.setHighlightStyle("#490483");
             piece.setHighlight(true);
         }
         this.draw();
     }
 
+    //obtiene la posicion de la columna en la que se coloco una ficha.
     getSpotPosition(piece, column) {
         let currentSpot = null;
         for ( const spot of this.spots[column]) {
@@ -212,7 +220,8 @@ class Board{
         }
         return currentSpot;
     }
-
+    
+    //Chequea si las fichas estan ubicadas en diagonal, de arriba hacia abajo, y de izquierda a derecha.
     checkDiagonalUpRight(player, spot, column) {
         const line = [];
         let col_index = column + 1;
@@ -231,7 +240,7 @@ class Board{
         }
         return line;
     }
-
+    //Chequea si las fichas estan ubicadas en diagonal, de abajo hacia arriba, y de derecha a izquierda.
     checkDiagonalDownLeft(player, spot, column) {
         const line = [];
         let col_index = column - 1;
@@ -251,6 +260,7 @@ class Board{
         return line;
     }
 
+    //Chequea si las fichas estan ubicadas en diagonal, de arriba hacia abajo, y de derecha a izquierda.
     checkDiagonalUpLeft(player, spot, column) {
         const line = [];
         let col_index = column - 1;
@@ -270,6 +280,7 @@ class Board{
         return line;
     }
 
+    //Chequea si las fichas estan ubicadas en diagonal, de abajo hacia arriba, y de izquierda a  derecha.
     checkDiagonalDownRight(player, spot, column){
         const line = [];
         let col_index = column + 1;
@@ -289,6 +300,7 @@ class Board{
         return line;
     }
 
+    //Chequea si las fichas estan ubicadas en diagonal, de forma ascendente.
     checkSecondDiagonal(piece, player, spot, column) {
         console.log("check second diagonal");
         let line = this.checkDiagonalDownRight(player, spot, column);
@@ -304,6 +316,7 @@ class Board{
         return line;
     }
 
+    //Chequea si las fichas estan ubicadas en diagonal, de forma descendente.
     checkFirstDiagonal(piece, player, spot, column) {
         let line = this.checkDiagonalDownLeft(player, spot, column);
         if(line.length != this.mode.line-1) {
@@ -318,6 +331,7 @@ class Board{
         return line;
     }
 
+    //chequea que las fichas esten ubicadas en una diagonal.
     checkDiagonals(piece, column) {
         let spot = this.getSpotPosition(piece, column);
         let line = [];
@@ -325,6 +339,7 @@ class Board{
         return (this.checkFirstDiagonal(piece, player, spot, column) || this.checkSecondDiagonal(piece, player, spot, column));
     }
 
+    //chequea que las fichas esten ubicadas en una fila.
     checkRows() { 
         for (let row = this.mode.rows -1; row >= 0; row--) {
             let line = [];
@@ -338,7 +353,7 @@ class Board{
                     if(player == null) player = piece_player;
                     if(player == piece_player) {
                         line.push(piece);
-                        if(line.length == this.mode.line) { //Hizo línea...
+                        if(line.length == this.mode.line) {
                             this.winner = player;
                             return line;
                         } 
@@ -356,6 +371,7 @@ class Board{
         return null;
     }
 
+    //chequea que las fichas esten ubicadas en una columna.
     checkColumns() {
         for(const column of this.spots) {
             let line = [];
@@ -383,9 +399,9 @@ class Board{
         return null;
     }
 
-    //A partir de l cuarta ficha, controlar...
+    //A partir de la cuarta ficha, controlar.
     checkWinner(piece, column) {
-        //Si se jugaron las piezas necesarias para hacer línea, chequea. Si no, retorna null...
+        //Si se jugaron las piezas necesarias para hacer línea, chequea. Si no, retorna null.
         if(this.played_pieces >= (this.mode.line*2) - 1) {
             let line = [];
             line = this.checkColumns();
