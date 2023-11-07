@@ -11,7 +11,7 @@ class Spot extends Figure {
 
     createImage() {
         let image = new Image();
-        image.src = "../images/4enLinea/img1.jpg";
+        //image.src = "../images/4enLinea/img1.jpg";
         image.width = this.width;
         image.height = this.height;
         return image;

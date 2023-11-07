@@ -27,7 +27,7 @@ class Piece extends Figure{
     setRadious(radious) {this.radious = radious;}
 
     draw() {
-        console.log(this.image);
+        console.log(this.image.src);
         this.cxt.save();
         this.cxt.beginPath();
         this.cxt.arc(this.x, this.y, this.radious, 0, 2 * Math.PI);
