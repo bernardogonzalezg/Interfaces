@@ -1,0 +1,28 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    width: 1280px;
+}
+
+.conteiner-page{
+    width: 1080px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 100px;
+}   
+
+.conteiner-initial, .background-initial, header, header img {
+    width: 1080px;
+}
+
+.character{
+    width: 310px;
+}
+
+.img-nav-logo{
+    width: 500px;
+}
