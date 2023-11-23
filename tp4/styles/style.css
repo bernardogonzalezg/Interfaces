@@ -13,16 +13,94 @@ body{
     justify-content: center;
     flex-direction: column;
     margin-left: 100px;
+    border: solid 1px #5499F8;
 }   
+
+.img-nav-logo{
+    width: 50px;
+}
+
+@keyframes scroll {
+    0% {background-position-x: 0px;}
+    100% {background-position-x: -1920px;}
+}
+
+.conteiner-initial-paralax{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: absolute;
+   top: -155px;
+   background-repeat: repeat-x;
+   background-size: cover;
+}
+
 
 .conteiner-initial, .background-initial, header, header img {
     width: 1080px;
 }
 
-.character{
-    width: 310px;
+.background-initial{
+    position: absolute;
+    top: 185px;
+    left: 0px;
+    filter: blur(2px);
 }
 
-.img-nav-logo{
-    width: 500px;
+.character1{
+    width: 300px;
+    position: absolute;
+    top: 408px;
+    left: 75px;
+}
+
+.character2{
+    width: 360px;
+    position: absolute;
+    top: 432px;
+    left: 352px;
+}
+
+.character3{
+    width: 335px;
+    position: absolute;
+    top: 361px;
+    left: 583px;
+}
+
+.img-spiderweb1{
+    width: 375px;
+    position: absolute;
+    top: 421px;
+    left: -18px;
+    transform: rotate(65deg);
+}
+
+.img-spiderweb2{
+    width: 236px;
+    position: absolute;
+    top: 416px;
+    left: 903px;
+    transform: rotate(296deg);
+}
+
+.img-logo{
+    width: 492px;
+    position: absolute;
+    top: 178px;
+    left: 273px;
+}
+
+.layer-1{
+    display: flex;
+    justify-content: center;
+    animation: scroll 25s ;
+}
+
+.layer-2{
+    animation: scroll 10s ;
+}
+
+.layer-3{
+    animation: scroll 10s ;
 }
