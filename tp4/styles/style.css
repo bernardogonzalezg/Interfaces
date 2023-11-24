@@ -1,6 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Lato:wght@400;700;900&family=Oswald&family=Poppins:ital,wght@0,100;0,400;0,500;0,600;0,700;0,800;0,900;1,100&family=Roboto:wght@100&display=swap');
+
+
 *{
     margin: 0px;
     padding: 0px;
+}
+
+/*--- Variables Globales -----*/
+
+*:root {
+    --font: 'Lato';
+    --yellow: #FFE901;
+    --black-btn: #02187E;
+    --light-blue: #2982FF;
+    --light-blue-two: #2981FF;
+    --white: #FFF;
+    --black: #000;
+    --grey: rgba(0, 0, 0, 0.39);
+    --dark-grey: #5E5E5D;
+    --purple: #8F6AA6;
+    --background-header: linear-gradient(180deg, #5499F8 0%, #5499F8 87.91%, rgba(84, 153, 248, 0.00) 100%);
+    --background-section-8: linear-gradient(180deg, #F7E3D8 21.2%, #8FBEFC 81.48%);
 }
 
 body{
@@ -12,20 +32,14 @@ body{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin-left: 100px;
-    border: solid 1px #5499F8;
 }   
 
 .img-nav-logo{
     width: 50px;
 }
 
-@keyframes scroll {
-    0% {background-position-x: 0px;}
-    100% {background-position-x: -1920px;}
-}
-
 .conteiner-initial-paralax{
+   width: 1080px;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -35,12 +49,8 @@ body{
    background-size: cover;
 }
 
-
-.conteiner-initial, .background-initial, header, header img {
-    width: 1080px;
-}
-
 .background-initial{
+    width: 1080px;
     position: absolute;
     top: 185px;
     left: 0px;
@@ -66,6 +76,7 @@ body{
     position: absolute;
     top: 361px;
     left: 583px;
+    animation: scroll 1s linear;
 }
 
 .img-spiderweb1{
@@ -91,16 +102,52 @@ body{
     left: 273px;
 }
 
-.layer-1{
+
+/*--------- FOOTER -------------*/
+
+footer{
+    margin-top: 160px;
+    width: 1280px;
+    font-size: 20px;
+    font-weight: 400;
+    font: var(--font);
+    background-color: #5E5E5D;
+}
+
+.conteiner-banner-footer{
+    width: 1280px;
+    height: 71px;
+    background-color: #242424;
     display: flex;
     justify-content: center;
-    animation: scroll 25s ;
 }
 
-.layer-2{
-    animation: scroll 10s ;
+footer img {
+    width: 1080px;
 }
 
-.layer-3{
-    animation: scroll 10s ;
+.text-footer{
+    color: var(--white);
+    width: 820px;
+    height: 275px;
+    margin-top: 38px;
+    letter-spacing: 2.2px;
+}
+
+.foot-footer{
+    color: var(--white);
+    text-decoration: underline;
+    margin-bottom: 25px;
+}
+
+.redes-footer{
+    width: 212px;
+}
+
+.contein-footer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 131px;
+    margin-bottom: 135px;
 }
