@@ -38,6 +38,40 @@ body{
     width: 50px;
 }
 
+/*----- Botones ------*/
+
+.tx-btn{
+    color: var(--black-btn);
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 2.2px;
+}
+
+.btn{
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    
+}
+
+.comprar {
+    width: 292px;
+    height: 50px;
+    border-radius: 111px;
+    border: 8px solid var(--2982-ff, #2982FF);
+    background: var(--yellow);
+    -webkit-text-stroke:2px;
+    /* Drop Shadow */
+    box-shadow: 4px 5px 0px 0px #02187E;
+    transition: .3s;
+}
+
+.comprar:hover{
+    box-shadow: 0 0 5px #fff, 0 0 20px #fff, 0 0 40px #fff;
+    transform: translateX(10px) scale(1.05); 
+}
+
 .conteiner-initial-paralax{
    width: 1080px;
    display: flex;
@@ -102,11 +136,416 @@ body{
     left: 273px;
 }
 
+/*-------   section 5   --------*/
+
+.section5 {
+    width: 1280px;
+    margin-top: 578px;
+    height: 980px;
+    display: flex;
+    justify-content: center;
+    background-color: var(--black);
+}
+
+.conteiner-section5{
+    width: 1080px;
+}
+
+.section5 h1{
+    font-family: Lato;
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 57px;
+    letter-spacing: 0em;
+    text-align: left;
+    width: 646px;
+    color: var(--white);
+    margin-top: 205px;
+}
+
+.conteiner-img-section5 img {
+    position: absolute;
+}
+
+.sky-section5, .tree-section5, .grass{
+    top: 1256px;
+    width: 1080px;
+}
+
+.girl {
+    width: 445px;
+    left: 226px;
+    top: 1200px;
+    transform: rotate(-12.483deg);
+}
+
+.panther {
+    width: 419px;
+    left: 608px;
+    top: 1047px;
+    transform: rotate(14deg);
+}
+
+.hulk {
+    left: 801px;
+    top: 1355px;
+    width: 451px;
+}
+
+/*-------  seccion 6   ----------*/
+
+.section6 {
+    /*height: 1600px;*/ 
+    width: 1080px;
+    margin-top: 100px;
+    padding-top: 300px;
+    z-index: -1;
+}
+.section6  h1{
+    font-family: var(--font);
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 57px;
+    letter-spacing: 0em;
+    text-align: left;    
+    padding-top: 100px;
+    padding-left: 155px;
+    margin-bottom: 60px;
+}
+
+.section6-colText h3{
+    font-family: var(--font);
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 38px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.section6 img {
+    width: 552px;
+    height: 302px;
+}
+
+.section6 .width-1080{
+    padding-top: 130px;
+    margin: 0 auto;
+}
+/* .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+     
+} */
+.grid-container {
+    display: flex;
+    justify-content: space-between;
+     
+}
+
+.section6 .section6-colImg{
+    /* flex: 1; */
+    width: 552px;
+    position: relative;
+}
+.section6 .section6-colText{
+    width: 475px;
+    
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+
+
+/*======para ocultar la barra de scroll========*/
+.section6-colText::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+.section6-colText::-webkit-scrollbar-thumb {
+    background-color: #FFF;
+}
+
+ 
+#title-1{
+    opacity: 1;
+}
+#title-1, #title-2, #title-3, #title-4{
+    transition: ease-in-out .3s;
+}
+
+#text-1{
+    opacity: 1;
+}
+#text-1, #text-2, #text-3, #text-4{
+    transition: ease-in-out .3s;
+}
+#image1{
+      opacity: 1;
+}
+
+#image1, #image2, #image3, #image4{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    opacity: 0;
+    transition: ease-in-out 1.5s;
+    
+}
+
+/* 
+.section6 {
+    height: 2195px; 
+    background-image: url(../img/seccion6/fondo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top: -200px;
+    padding-top: 200px;
+}
+
+.section6 .width-1080 h1{
+    top: 170px;
+    left: 0;
+    padding-top: 150px;
+}
+
+ .s6-sticky-container { aca posiciono las cols img y texto
+    height: 400px;
+    padding-top: 50px;
+    padding-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+   .sticky-image {
+  }
+
+ 
+
+  .text-container {
+    width: 45%;
+    padding-left: 2%;
+  } */ 
+
+
+
+/*-----  seccion Comprar  ----------*/
+
+.sectionBuy {
+    margin-top: 200px;
+    width: 1280px;
+    height: 376px;
+    background-color: var(--black);
+}
+
+.sectionBuy h1{
+    padding-top: 86px;
+    margin-left: 150px;
+    width: 750px;
+    color: var(--white);
+    font-family: var(--font);
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 72px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.sectionBuy button{
+    margin-left: 150px;
+    margin-top: 25px;
+
+}
+
+
+/*-----  section 7 ----------*/
+
+.section7 {
+    width: 1280px;
+    padding-bottom: 40px;
+    height: 880px;
+    background-image:  url(../images/rectangle-10.png);
+    position: relative;
+}
+
+.section7 .pers-section7 {
+    position: relative;
+}
+
+.pers-section7 img{
+    margin-left: 96px;
+    margin-right: 46px;
+}
+
+.section7 .pers-section7 > img {
+    width: 350px;
+    height: auto;
+    position: absolute;
+    top:180px;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+}
+
+.spider-white {
+    left: 0px;
+}
+
+.spider-red {
+    left: 30%;
+  }
+
+.spider-black {
+    right:0px;
+}
+
+.section7 .popup {
+    display: none;
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    height: 832px;
+    background-color: var(--black);
+    justify-content: space-around;
+    align-items: center;
+}
+
+.section7 .show {
+    display: flex;
+}
+
+
+/*--------- Seccion 8 ----------*/
+
+.section8 {  
+    width: 1280px;
+    height: 1296px;
+    background: linear-gradient(180deg,  #8FBEFC 21.2%, #F7E3D8  81.48%);
+    position: relative;
+}
+
+.section8 .img-section8-building{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.text-section8{
+    font-family: var(--font);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;    
+}
+
+.text-section8 span{
+    text-decoration: underline;
+}
+
+#miniSpiderman1 {
+    position: absolute;
+    transform: scale(0.3);
+    bottom: 13%;
+    left: 72.5%;
+    width: 238px;
+    height: 218px;
+    background-image: url(../images/pers-sect8-3.png);
+    background-repeat: repeat-x;
+}
+
+#miniSpiderman2 {
+    transform: scale(0.3);
+    position: absolute;
+    bottom: 8.2%;
+    right: 50.8%;
+    width: 153px;
+    height: 165px;
+    background-image: url(../images/pers-sect8-2.png);
+    background-repeat: repeat-x;
+}
+
+  #miniSpiderman3 {
+    transform: scale(0.2);
+    position: absolute;
+    bottom: -3.7%;
+    left: 7.5%;
+    width: 354px;
+    height: 346px;
+    background-image: url(../images/pers-sect8-1.png);
+    background-repeat: repeat-x;
+}
+
+.section8 .contein-section8{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section8 h1{
+    font-family: var(--font);
+    width: 826px;
+    margin-top: 134px;
+    margin-bottom: 50px;
+    font-size: 53px;
+    font-weight: 600;
+    line-height: 57px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+.section8 .contein-section8 p{
+    width: 578px;
+    height: 95px;
+    margin-top: 40px;
+    margin-left: -80px;
+}
+
+.section8 .contein-section8 img{
+    width: 231px;
+    height: 145px;
+    margin: 30px 0 0 -330px
+
+}
+
+.container-btn-setion8{
+    width: 780px;
+    height: 100px;
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.container-btn-setion8 input{
+    width: 562px;
+    height: 82px;
+    border-radius: 50px 0px 0px 50px;
+    border-top: 9px solid #2982FF;
+    border-bottom: 9px solid #2982FF;
+    border-left: 9px solid #2982FF;
+    background: #FFF;
+    box-shadow: 4px 5px 0px 0px #02187E;
+    font: var(--font);
+}
+
+.container-btn-setion8 input::placeholder{
+    color: var(--grey);
+    letter-spacing: 2.2px;
+    padding-left: 50px;
+}
+
+.container-btn-setion8 button{
+    width: 218px;
+    height: 100px;
+    margin-left: -10px;
+    border-radius: 0px 50px 50px 0px;
+}
+
+
+
 
 /*--------- FOOTER -------------*/
 
 footer{
-    margin-top: 160px;
     width: 1280px;
     font-size: 20px;
     font-weight: 400;
