@@ -105,13 +105,13 @@ class Board{
 
     //chequea si cada ficha es seleccionada
     findSelectedElement(x, y) { 
-        for(const el of this.pieces.player1.pieces) {
-            if(el.isPointInside(x, y)) 
-                return el;
+        for(let i=this.pieces.player1.pieces.length-1;i>=0;i--){
+            if(this.pieces.player1.pieces[i].isPointInside(x, y)) 
+                return this.pieces.player1.pieces[i];
         }
-        for(const el of this.pieces.player2.pieces) {
-            if(el.isPointInside(x, y)) 
-                return el;
+        for(let i=this.pieces.player2.pieces.length-1;i>=0;i--){
+            if(this.pieces.player2.pieces[i].isPointInside(x, y)) 
+                return this.pieces.player2.pieces[i];
         }
     }
 

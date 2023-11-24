@@ -286,6 +286,8 @@ function onMouseDown(e) {
         selectedPiece = null;
     }
     let clickedPiece = board.findSelectedElement(e.offsetX, e.offsetY);
+    console.log(e.offsetX, e.offsetY);
+    debugger;
     if(clickedPiece != null && clickedPiece.getPlayer() == current_player) {
         selectedPiece_initialPosition = clickedPiece.getPosition();
         if(!clickedPiece.getIsPlayed()) {
