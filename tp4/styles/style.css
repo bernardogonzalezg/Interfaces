@@ -51,6 +51,23 @@ h1, h2, h3 .body, .btn-txt {
     line-height: 94.5%; /* 56.7px */
 }
 
+h1{
+    font-size: 60px;
+    font-weight: 600;
+}
+
+h2{
+    font-size: 60px;
+    color: var(--white);
+    font-weight: 400;
+    line-height: normal;
+}
+
+h3{
+    font-size: 40px;
+    font-weight: 400;
+}
+
 /*----- Header ------*/
 
 header {
@@ -148,7 +165,60 @@ button.burger-menu:hover div:nth-child(2){
     opacity: 0;
 }
 
+/*----- Seccion Spidey ------*/
 
+.spidey {
+    width: 100%;
+    position: relative;
+    height: 924.5px;
+    background-image: url(../images/fondoo.png);
+    background-size: 100% 90% ;
+    background-repeat: no-repeat;
+    z-index: 2;
+    margin-top: -80px;
+}
+
+.spidey .nav{
+    position: relative;
+}
+
+.spidey .nav h1, .spidey .nav p{
+    position: absolute;
+    color: var(--white);
+    margin-top: 50px;
+}
+
+.spidey .nav h1{
+
+    width: 646px;
+    top: 160px;
+    left: 0;
+}
+
+.spidey .nav p{
+    width: 580px;
+    height: 154px;
+    top: 300px;
+    left: 0;
+    line-height: normal;
+}
+
+.container-img-spidey{
+    position: relative;
+}
+
+.spidey .container-img-spidey .img-seccion-spidey{
+    position: absolute;
+    left: 0;
+    top: 520px;
+}
+
+.spidey .container-img-spidey .img-duende{
+    position: absolute;
+    right: -100px;
+    top: 140px;
+    transform: scale(0.9);
+}
 /*----- Botones ------*/
 
 .btn-txt{
@@ -349,7 +419,7 @@ button.burger-menu:hover div:nth-child(2){
     height: 302px;
 }
 
-.section6 .width-1080{
+.section6 .nav{
     padding-top: 130px;
     margin: 0 auto;
 }
