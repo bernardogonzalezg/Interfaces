@@ -237,7 +237,6 @@ button.burger-menu:hover div:nth-child(2){
 }
 
 
-
 .comprar {
     width: 292px;
     height: 50px;
@@ -266,7 +265,6 @@ button.burger-menu:hover div:nth-child(2){
    background-size: cover;*/
 }
 
-
 .conteiner-initial-paralax .logo {
     position: absolute;
     z-index: 10001;
@@ -275,7 +273,6 @@ button.burger-menu:hover div:nth-child(2){
     top: -30px;
     transition: ease .7s;  
 }
-
 
 .logo.invisible {
     top: -250px;
@@ -287,7 +284,6 @@ button.burger-menu:hover div:nth-child(2){
     bottom: 60px;
     z-index: 0;
 }
-
 
 .character1 {
     position: absolute;
@@ -301,7 +297,7 @@ button.burger-menu:hover div:nth-child(2){
 .character1.invisible {
     left: -150px;
     opacity: 0;
-  }
+}
 
 .character2 {
     position: absolute;
@@ -314,7 +310,7 @@ button.burger-menu:hover div:nth-child(2){
 .character2.invisible {
     bottom: -350px;
     opacity: 0;
-  }
+}
 
 .character3 {
     position: absolute;
@@ -323,11 +319,162 @@ button.burger-menu:hover div:nth-child(2){
     z-index: 10;
     transition: .5s linear;
 }
+
 .character3.invisible {
     right: -350px;
     opacity: 0;
 }
 
+/*--------   seccion 3    ---------*/
+
+.section3 {
+    background-color: var(--white);
+    width: 1280px;
+    height: 1085px;
+    margin-top: -210px; /*agregue esto para q la seccion se meta atras de la anterior ver!!!*/
+    z-index: 1;
+}
+
+.container3 {
+    width: 1080px;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding-top: 370px; /*agrande el padding xq al poner margin negativo se subia el contenido*/
+    display: flex;
+    justify-content: space-between;
+}
+
+.container3 img {
+  width: 30%; /* Establece un ancho en porcentaje para cada imagen */
+  max-height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
+}
+
+.image-wrapper {
+  width: 333px;
+}
+
+.card{
+    opacity: 0;
+    position: relative;
+    bottom: -250px;
+}
+
+.efecto-card1-remove{
+    opacity: 0;
+    bottom: -250px;
+    transition: .4s ease;
+}
+
+.efecto-card2-remove{
+    opacity: 0;
+    bottom: -250px;
+    transition: .8s ease;
+}
+
+.efecto-card3-remove{
+    opacity: 0;
+    bottom: -250px;
+    transition: 1.2s ease;
+}
+
+.efecto-card1{
+    opacity: 1;
+    bottom:  0; 
+    transition: ease .4s;
+
+}
+
+.efecto-card2{
+    opacity: 1;
+    bottom:  0; 
+    transition: ease .8s;
+}
+
+.efecto-card3{
+    opacity: 1;
+    bottom:  0; 
+    transition: ease 1.2s;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: auto;
+}
+
+.translate-element {
+    transition: transform 0.5s ease; 
+}
+  
+.translate-element.active {
+    transform: translate(0, 0); /
+}
+
+/*-------  section 4  ---------*/
+
+.section4 {
+    width: 100%;
+    height: 566px;
+    margin-top: -60px;
+    background-image: url(../images/fondoSeccion4.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.conteiner-section4{
+    position: relative;
+    width: 433px;
+    margin-left: 100px;
+}
+
+.section-4-card1 img, .section-4-card2 img, .section-4-card3 img{
+    width: 630px;
+}
+
+.section-4-card1 img{
+    transform: rotate(-8deg);
+}
+
+.section-4-card2 img{
+    transform: rotate(-20deg);
+}
+
+.section-4-card3 img{
+    transform: rotate(-31deg);
+}
+
+.conteiner-section4 .section-4-card1{
+    position: absolute;
+    top: -155px;
+    left: -45px;
+    width: 546.108px;
+    height: 326.509px;
+    flex-shrink: 0;
+}
+
+.conteiner-section4 .section-4-card2{
+    position: absolute;
+    left: -45px;
+    top: 78px;
+    width: 543.218px;
+    height: 325.787px;
+    flex-shrink: 0;
+}
+
+.conteiner-section4 .section-4-card3{
+    position: absolute;
+    left: -5px;
+    top: 293px;
+    width: 546.108px;
+    height: 326.509px;
+    flex-shrink: 0;
+}
+
+.section4 .section-4-card1:hover, 
+.section4 .section-4-card2:hover,
+.section4 .section-4-card3:hover{
+    transform: skewY(7deg);
+    transition: all .5s ease-in-out;
+}
 
 /*-------   section 5   --------*/
 
@@ -361,27 +508,27 @@ button.burger-menu:hover div:nth-child(2){
 }
 
 .sky-section5, .tree-section5, .grass{
-    top: 1256px;
+    top: 3510px;
     width: 1080px;
 }
 
 .girl {
     width: 445px;
     left: 226px;
-    top: 1200px;
+    top: 3453px;
     transform: rotate(-12.483deg);
 }
 
 .panther {
     width: 419px;
     left: 608px;
-    top: 1047px;
+    top: 3313px;
     transform: rotate(14deg);
 }
 
 .hulk {
     left: 801px;
-    top: 1355px;
+    top: 3598px;
     width: 451px;
 }
 
@@ -483,43 +630,6 @@ button.burger-menu:hover div:nth-child(2){
     transition: ease-in-out 1.5s;
     
 }
-
-/* 
-.section6 {
-    height: 2195px; 
-    background-image: url(../img/seccion6/fondo.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    margin-top: -200px;
-    padding-top: 200px;
-}
-
-.section6 .width-1080 h1{
-    top: 170px;
-    left: 0;
-    padding-top: 150px;
-}
-
- .s6-sticky-container { aca posiciono las cols img y texto
-    height: 400px;
-    padding-top: 50px;
-    padding-bottom: 25px;
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-}
-
-   .sticky-image {
-  }
-
- 
-
-  .text-container {
-    width: 45%;
-    padding-left: 2%;
-  } */ 
-
-
 
 /*-----  seccion Comprar  ----------*/
 
