@@ -9,14 +9,12 @@
     text-decoration: none;
 }
 
-html{
-    width: 1280px;
-}
 
 body {
     width: 1280px;
     overflow-x: hidden;
     background-color: black;
+    line-height: 18.9px;
 }
 
 /*--- Variables Globales -----*/
@@ -616,6 +614,7 @@ button.burger-menu:hover div:nth-child(2){
 }
 #text-1, #text-2, #text-3, #text-4{
     transition: ease-in-out .3s;
+    margin-top: 26px;
 }
 #image1{
       opacity: 1;
@@ -662,7 +661,7 @@ button.burger-menu:hover div:nth-child(2){
 
 .section7 {
     width: 1280px;
-    margin-top: -130px;
+    margin-top: -90px;
     padding-bottom: 40px;
     height: 1000px;
     background-image:  url(../images/fondoSeccion7.png);
@@ -755,7 +754,7 @@ button.burger-menu:hover div:nth-child(2){
     background-repeat: repeat-x;
 }
 
-@keyframes climb {
+@keyframes dance {
     0% { background-position:0 }
     100% { background-position:-280px }
 }
@@ -774,7 +773,7 @@ button.burger-menu:hover div:nth-child(2){
 #miniSpiderman2:hover{
     bottom: 8.2%;
     background-repeat: repeat-x;
-    animation: climb 2.5s steps(7) infinite;
+    animation: dance 2.5s steps(7) infinite;
 }
 
   #miniSpiderman3 {
@@ -884,13 +883,15 @@ footer img {
     width: 820px;
     height: 275px;
     margin-top: 38px;
-    letter-spacing: 2.2px;
+    margin-bottom: 72px;
+    letter-spacing: 4px;
 }
 
 .foot-footer{
     color: var(--white);
     text-decoration: underline;
-    margin-bottom: 25px;
+    margin-bottom: 45px;
+    letter-spacing: 4px;
 }
 
 .redes-footer{

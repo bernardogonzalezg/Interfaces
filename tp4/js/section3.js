@@ -9,7 +9,6 @@ let distanceCard1;
 
 function cardsIn(){
     distanceCard1 = window.innerHeight - card1.getBoundingClientRect().top;
-    console.log(distanceCard1);
     if(distanceCard1 >= 25){
         card1.classList.add("efecto-card1");
         card2.classList.add("efecto-card2");

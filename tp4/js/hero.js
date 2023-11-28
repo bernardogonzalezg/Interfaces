@@ -18,12 +18,9 @@ const cargarElem = () => {
 
 setTimeout(cargarElem, 100);
 
-
 window.addEventListener("scroll", () =>{
   
-
   let scroll = window.scrollY;
-  //logo
   if(scroll > 20){
     logo.style.transform = `translateY(-25%)  translateX(-5%) scale(0.25) `;
     logo.style.position = `fixed`;
@@ -38,14 +35,11 @@ window.addEventListener("scroll", () =>{
     header.style.zIndex = `1`;
   }
 
- //personajes
   personaje1.style.transform = `translateY(${-scroll*0.35}px) translateX(${-scroll*0.35}px) `;
   personaje3.style.transform = `translateY(${-scroll*0.25}px) translateX(${scroll*0.25}px)`;
   personaje2.style.transform = ` translateY(${-scroll*0.45}px) `;
-  //fondo
   fondo.style.transform = `translateY(${scroll*0.4}px)`
 })
-
 
 const headerSticky = ()=> {
    header.style.height = "80px";
